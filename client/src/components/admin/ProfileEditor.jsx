@@ -88,6 +88,24 @@ const ProfileEditor = () => {
     });
   };
 
+  const handleMoveEducation = (section, index, direction) => {
+    setFormData(prev => {
+      const newEdu = [...(prev[section].education || [])];
+      if (direction === 'up' && index > 0) {
+        [newEdu[index - 1], newEdu[index]] = [newEdu[index], newEdu[index - 1]];
+      } else if (direction === 'down' && index < newEdu.length - 1) {
+        [newEdu[index + 1], newEdu[index]] = [newEdu[index], newEdu[index + 1]];
+      }
+      return {
+        ...prev,
+        [section]: {
+          ...prev[section],
+          education: newEdu
+        }
+      };
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage('');
@@ -178,8 +196,12 @@ const ProfileEditor = () => {
             </div>
             <div className="space-y-4">
               {formData.engineering?.education?.map((edu, idx) => (
-                <div key={idx} className="bg-black border border-slate-800 p-4 relative">
-                  <button type="button" onClick={() => handleRemoveEducation('engineering', idx)} className="absolute top-4 right-4 text-xs text-red-500 hover:text-red-400 uppercase tracking-widest">Remove</button>
+                <div key={idx} className="bg-black border border-slate-800 p-4 relative pt-12 md:pt-4">
+                  <div className="absolute top-4 right-4 flex gap-4">
+                    <button type="button" onClick={() => handleMoveEducation('engineering', idx, 'up')} disabled={idx === 0} className={`text-xs uppercase tracking-widest ${idx === 0 ? 'text-slate-700 cursor-not-allowed' : 'text-slate-400 hover:text-white'}`}>Up</button>
+                    <button type="button" onClick={() => handleMoveEducation('engineering', idx, 'down')} disabled={idx === (formData.engineering?.education?.length || 0) - 1} className={`text-xs uppercase tracking-widest ${idx === (formData.engineering?.education?.length || 0) - 1 ? 'text-slate-700 cursor-not-allowed' : 'text-slate-400 hover:text-white'}`}>Down</button>
+                    <button type="button" onClick={() => handleRemoveEducation('engineering', idx)} className="text-xs text-red-500 hover:text-red-400 uppercase tracking-widest">Remove</button>
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs text-slate-500 mb-1">Year</label>
@@ -295,8 +317,12 @@ const ProfileEditor = () => {
             </div>
             <div className="space-y-4">
               {formData.developer?.education?.map((edu, idx) => (
-                <div key={idx} className="bg-black border border-slate-800 p-4 relative">
-                  <button type="button" onClick={() => handleRemoveEducation('developer', idx)} className="absolute top-4 right-4 text-xs text-red-500 hover:text-red-400 uppercase tracking-widest">Remove</button>
+                <div key={idx} className="bg-black border border-slate-800 p-4 relative pt-12 md:pt-4">
+                  <div className="absolute top-4 right-4 flex gap-4">
+                    <button type="button" onClick={() => handleMoveEducation('developer', idx, 'up')} disabled={idx === 0} className={`text-xs uppercase tracking-widest ${idx === 0 ? 'text-slate-700 cursor-not-allowed' : 'text-slate-400 hover:text-white'}`}>Up</button>
+                    <button type="button" onClick={() => handleMoveEducation('developer', idx, 'down')} disabled={idx === (formData.developer?.education?.length || 0) - 1} className={`text-xs uppercase tracking-widest ${idx === (formData.developer?.education?.length || 0) - 1 ? 'text-slate-700 cursor-not-allowed' : 'text-slate-400 hover:text-white'}`}>Down</button>
+                    <button type="button" onClick={() => handleRemoveEducation('developer', idx)} className="text-xs text-red-500 hover:text-red-400 uppercase tracking-widest">Remove</button>
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs text-slate-500 mb-1">Year</label>

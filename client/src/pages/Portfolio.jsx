@@ -18,6 +18,7 @@ import { motion } from 'framer-motion';
 import ScrollReveal from '../components/ScrollReveal';
 import PageTransition from '../components/PageTransition';
 import GithubStats from '../components/GithubStats';
+import { Helmet } from 'react-helmet-async';
 
 const Portfolio = () => {
   const { identity } = useIdentity();
@@ -51,9 +52,14 @@ const Portfolio = () => {
   if (loading || !profileData) return <Loader />;
 
   const profile = identity === 'engineering' ? profileData.engineering : profileData.developer;
+  const titleString = identity === 'engineering' ? "Electrical Engineer Portfolio" : "Full Stack Developer Portfolio";
 
   return (
     <PageTransition>
+      <Helmet>
+        <title>{titleString} | Atanu Ghosh</title>
+        <meta name="description" content={profile.aboutText.substring(0, 150) + '...'} />
+      </Helmet>
       <MainLayout>
         <Hero />
         <SocialBand />

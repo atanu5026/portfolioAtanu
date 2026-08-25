@@ -92,11 +92,30 @@ const likeBlog = async (req, res) => {
   }
 };
 
+// @desc    Increment view count
+// @route   POST /api/blogs/:id/view
+// @access  Public
+const incrementView = async (req, res) => {
+  try {
+    const blog = await Blog.findById(req.params.id);
+    if (blog) {
+      blog.views = (blog.views || 0) + 1;
+      await blog.save();
+      res.json({ views: blog.views });
+    } else {
+      res.status(404).json({ message: 'Blog not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getBlogs,
   getBlogById,
   createBlog,
   updateBlog,
   deleteBlog,
-  likeBlog
+  likeBlog,
+  incrementView
 };

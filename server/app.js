@@ -31,6 +31,7 @@ const messageRoutes = require('./routes/messageRoutes');
 const guestbookRoutes = require('./routes/guestbookRoutes');
 const uploadRoutes = require('./routes/uploadRoutes');
 const experienceRoutes = require('./routes/experienceRoutes');
+const sitemapRoutes = require('./routes/sitemapRoutes');
 
 // Use Routes
 app.use('/api/auth', authRoutes);
@@ -41,6 +42,9 @@ app.use('/api/messages', messageRoutes);
 app.use('/api/guestbook', guestbookRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/experience', experienceRoutes);
+
+// Sitemap
+app.use('/', sitemapRoutes);
 
 // Error Handler Middleware
 // app.use(require('./middleware/errorMiddleware').errorHandler);

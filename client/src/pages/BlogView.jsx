@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import { useIdentity } from '../context/IdentityContext';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
+import { Helmet } from 'react-helmet-async';
 
 const BlogView = () => {
   const { id } = useParams();
@@ -14,6 +15,7 @@ const BlogView = () => {
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [liking, setLiking] = useState(false);
+  const [viewed, setViewed] = useState(false);
 
   const accentColor = identity === 'engineering' ? 'text-orange-500' : 'text-blue-500';
   const progressColor = identity === 'engineering' ? 'bg-orange-500' : 'bg-blue-500';
@@ -36,6 +38,21 @@ const BlogView = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // scroll to top when mounting
   }, []);
+
+  useEffect(() => {
+    const incrementView = async () => {
+      if (!viewed && blog) {
+        try {
+          const res = await axios.post(`/api/blogs/${id}/view`);
+          setBlog(prev => ({ ...prev, views: res.data.views }));
+          setViewed(true);
+        } catch (err) {
+          console.error('Failed to increment view', err);
+        }
+      }
+    };
+    incrementView();
+  }, [blog, id, viewed]);
 
   const { scrollYProgress } = useScroll(); // Native window scroll is fine since it's a static page
   const scaleX = useSpring(scrollYProgress, {
@@ -72,6 +89,15 @@ const BlogView = () => {
 
   return (
     <PageTransition>
+      <Helmet>
+        <title>{blog.title} | Atanu Ghosh</title>
+        <meta name="description" content={blog.metaDescription || (blog.content.substring(0, 150) + '...')} />
+        <meta name="keywords" content={blog.keywords || (blog.tags?.join(', '))} />
+        <meta property="og:title" content={blog.title} />
+        <meta property="og:description" content={blog.metaDescription || (blog.content.substring(0, 150) + '...')} />
+        {blog.coverImage && <meta property="og:image" content={blog.coverImage} />}
+        <meta property="og:type" content="article" />
+      </Helmet>
       <div className="min-h-screen bg-black text-slate-300 relative pb-24 font-sans">
         {/* Progress Bar */}
         {createPortal(
@@ -115,6 +141,14 @@ const BlogView = () => {
                 </svg>
                 <span className="font-mono text-sm font-bold text-white">{blog.likes || 0}</span>
               </button>
+              
+              <div className="flex items-center gap-2 px-4 py-2 bg-zinc-900/50 rounded-full border border-slate-700">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-slate-500">
+                  <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                  <path fillRule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clipRule="evenodd" />
+                </svg>
+                <span className="font-mono text-sm font-bold text-slate-300">{blog.views || 0} views</span>
+              </div>
             </div>
             
             {blog.coverImage && (

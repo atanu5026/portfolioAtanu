@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getBlogs, getBlogById, createBlog, updateBlog, deleteBlog, likeBlog } = require('../controllers/blogController');
+const { getBlogs, getBlogById, createBlog, updateBlog, deleteBlog, likeBlog, incrementView } = require('../controllers/blogController');
 const { protect } = require('../middleware/authMiddleware');
 
 router.route('/')
@@ -14,5 +14,8 @@ router.route('/:id')
 
 router.route('/:id/like')
   .post(likeBlog);
+
+router.route('/:id/view')
+  .post(incrementView);
 
 module.exports = router;

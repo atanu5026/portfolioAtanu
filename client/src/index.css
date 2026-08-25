@@ -71,6 +71,11 @@ body {
   cursor: none !important;
 }
 
+/* Fix MDEditor Fullscreen z-index so it stays above the custom cursor and navigation */
+.w-md-editor-fullscreen {
+  z-index: 99999 !important;
+}
+
 button, a {
   /* removed cursor: pointer so custom cursor shows */
 }

@@ -71,14 +71,14 @@ const ProjectModal = ({ project, onClose }) => {
                 </div>
               )}
 
-              <div className="flex gap-4 font-mono text-xs tracking-widest uppercase font-bold">
+              <div className="flex flex-wrap gap-4 font-mono text-[10px] md:text-xs tracking-widest uppercase font-bold">
                 {project.githubUrl && (
-                  <a href={project.githubUrl} target="_blank" rel="noreferrer" className="text-slate-900 dark:text-white hover:text-slate-500 dark:text-slate-400 border border-slate-300 dark:border-slate-700 px-4 py-2">
+                  <a href={project.githubUrl} target="_blank" rel="noreferrer" className="text-slate-900 dark:text-white hover:text-slate-500 dark:text-slate-400 border border-slate-300 dark:border-slate-700 px-4 py-3 md:py-2 text-center w-full md:w-auto">
                     Source Code
                   </a>
                 )}
                 {project.liveUrl && (
-                  <a href={project.liveUrl} target="_blank" rel="noreferrer" className={`${accentColor} border border-current px-4 py-2 hover:bg-white/5`}>
+                  <a href={project.liveUrl} target="_blank" rel="noreferrer" className={`${accentColor} border border-current px-4 py-3 md:py-2 hover:bg-white/5 text-center w-full md:w-auto`}>
                     View Live
                   </a>
                 )}

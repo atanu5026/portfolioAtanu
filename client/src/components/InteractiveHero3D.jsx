@@ -135,8 +135,10 @@ const InteractiveHero3D = () => {
         <ambientLight intensity={1.5} />
         <directionalLight position={[10, 10, 10]} intensity={3} />
         <directionalLight position={[-10, -10, -10]} intensity={1} color={color} />
-        <InteractiveShape color={color} isEngineer={isEngineer} />
-        <Environment preset="city" />
+        <React.Suspense fallback={null}>
+          <InteractiveShape color={color} isEngineer={isEngineer} />
+          <Environment preset="city" />
+        </React.Suspense>
       </Canvas>
     </div>
   );

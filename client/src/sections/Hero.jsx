@@ -49,13 +49,13 @@ const Hero = () => {
           <div className="flex flex-col md:flex-row gap-4">
             <a 
               href="#projects"
-              className={`border border-current px-6 md:px-8 py-3 text-sm font-bold tracking-widest uppercase transition-colors text-center w-full md:w-auto ${accentColor} hover:bg-white hover:text-black hover:border-white`}
+              className={`border border-current px-6 md:px-8 py-3 text-sm font-bold tracking-widest uppercase transition-colors text-center w-full md:w-auto ${accentColor} hover:bg-slate-900 hover:text-white hover:border-slate-900 dark:hover:bg-white dark:hover:text-black dark:hover:border-white`}
             >
               View Projects
             </a>
             <a 
               href="#connect"
-              className="border border-slate-300 dark:border-slate-700 px-6 md:px-8 py-3 text-sm font-bold tracking-widest uppercase text-center w-full md:w-auto text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:text-white hover:border-white transition-colors"
+              className="border border-slate-300 dark:border-slate-700 px-6 md:px-8 py-3 text-sm font-bold tracking-widest uppercase text-center w-full md:w-auto text-slate-500 dark:text-slate-400 hover:text-slate-900 hover:border-slate-900 dark:hover:text-white dark:hover:border-white transition-colors"
             >
               Contact Me
             </a>
@@ -63,7 +63,7 @@ const Hero = () => {
               href={profileData.resumeUrl}
               target="_blank"
               rel="noreferrer"
-              className={`border border-current px-6 md:px-8 py-3 text-sm font-bold tracking-widest uppercase transition-colors text-center w-full md:w-auto ${accentColor} hover:bg-white hover:text-black hover:border-white`}
+              className={`border border-current px-6 md:px-8 py-3 text-sm font-bold tracking-widest uppercase transition-colors text-center w-full md:w-auto ${accentColor} hover:bg-slate-900 hover:text-white hover:border-slate-900 dark:hover:bg-white dark:hover:text-black dark:hover:border-white`}
             >
               Download Resume
             </a>

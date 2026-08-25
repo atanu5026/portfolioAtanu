@@ -25,7 +25,7 @@ const MainLayout = ({ children }) => {
     setTimeout(() => {
       setIdentity(targetIdentity);
       setTransitionState(prev => ({ ...prev, active: false }));
-    }, 800);
+    }, 400);
   };
 
   const handleThemeSwitch = (e) => {
@@ -35,7 +35,7 @@ const MainLayout = ({ children }) => {
     setTimeout(() => {
       toggleTheme();
       setTransitionState(prev => ({ ...prev, active: false }));
-    }, 800);
+    }, 400);
   };
 
   const handleScrollTo = (e, id) => {
@@ -106,7 +106,7 @@ const MainLayout = ({ children }) => {
             initial={{ clipPath: `circle(0px at ${transitionState.x}px ${transitionState.y}px)` }}
             animate={{ clipPath: `circle(3000px at ${transitionState.x}px ${transitionState.y}px)` }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
             className={`fixed inset-0 z-50 pointer-events-none ${
               transitionState.type === 'identity' 
                 ? (transitionState.targetIdentity === 'engineering' ? 'bg-orange-500' : 'bg-blue-500')

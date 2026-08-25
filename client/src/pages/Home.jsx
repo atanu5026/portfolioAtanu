@@ -17,7 +17,7 @@ const Home = () => {
     setTimeout(() => {
       setIdentity(selectedIdentity);
       navigate('/portfolio');
-    }, 800);
+    }, 400);
   };
 
   return (
@@ -32,9 +32,12 @@ const Home = () => {
           className="flex-1 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-900 flex items-center justify-center cursor-pointer group relative overflow-hidden"
           onClick={(e) => handleSelect(e, 'engineering')}
         >
+          {/* Hover Background */}
+          <div className="absolute inset-0 bg-gradient-to-t from-orange-500/40 to-transparent translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out" />
+          
           <div className="z-10 text-center relative pointer-events-none">
-            <p className="text-xs text-slate-500 tracking-[0.3em] mb-4 uppercase">Choose This Side</p>
-            <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white group-hover:text-orange-500 transition-colors uppercase tracking-widest">
+            <p className="text-xs text-slate-500 tracking-[0.3em] mb-4 uppercase transition-colors duration-500">Choose This Side</p>
+            <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white group-hover:text-orange-500 transition-colors duration-500 uppercase tracking-widest">
               Electrical<br />Engineer
             </h1>
           </div>
@@ -45,9 +48,12 @@ const Home = () => {
           className="flex-1 flex items-center justify-center cursor-pointer group relative overflow-hidden"
           onClick={(e) => handleSelect(e, 'developer')}
         >
+          {/* Hover Background */}
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-500/40 to-transparent -translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out" />
+          
           <div className="z-10 text-center relative pointer-events-none">
-            <p className="text-xs text-slate-500 tracking-[0.3em] mb-4 uppercase">Choose This Side</p>
-            <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white group-hover:text-blue-500 transition-colors uppercase tracking-widest">
+            <p className="text-xs text-slate-500 tracking-[0.3em] mb-4 uppercase transition-colors duration-500">Choose This Side</p>
+            <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white group-hover:text-blue-500 transition-colors duration-500 uppercase tracking-widest">
               Full Stack<br />Developer
             </h1>
           </div>
@@ -60,7 +66,7 @@ const Home = () => {
             initial={{ clipPath: `circle(0px at ${transitionState.x}px ${transitionState.y}px)` }}
             animate={{ clipPath: `circle(3000px at ${transitionState.x}px ${transitionState.y}px)` }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
             className={`fixed inset-0 z-50 pointer-events-none ${transitionState.targetIdentity === 'engineering' ? 'bg-orange-500' : 'bg-blue-500'}`}
           />
         )}

@@ -43,7 +43,7 @@ const Cursor = () => {
     <>
       {/* Outer Glow Ring */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full border pointer-events-none z-[9999] mix-blend-screen"
+        className="fixed top-0 left-0 rounded-full border pointer-events-none z-[9999]"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,

@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MDEditor from '@uiw/react-md-editor';
+import { useIdentity } from '../../context/IdentityContext';
+import { useTheme } from '../../context/ThemeContext';
 
 const BlogEditor = () => {
+  const { identity } = useIdentity();
+  const { theme } = useTheme();
+  const accentHex = identity === 'engineering' ? '#f97316' : '#3b82f6';
+
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState(null);
@@ -134,14 +140,26 @@ const BlogEditor = () => {
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Read Time (mins)</label>
             <input type="number" className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none" value={formData.readTime} onChange={e => setFormData({...formData, readTime: Number(e.target.value)})} />
           </div>
-          <div className="md:col-span-2" data-color-mode="dark">
+          <div className="md:col-span-2" data-color-mode={theme}>
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Markdown Content</label>
-            <MDEditor
-              value={formData.content}
-              onChange={(val) => setFormData({...formData, content: val || ''})}
-              height={400}
-              preview="edit"
-            />
+            <div 
+              data-lenis-prevent="true"
+              className="border border-slate-300 dark:border-slate-800 focus-within:border-current transition-colors"
+              style={{ 
+                color: accentHex,
+                '--color-accent-fg': accentHex,
+                '--color-border-default': 'transparent',
+                '--color-canvas-default': 'transparent'
+              }}
+            >
+              <MDEditor
+                value={formData.content}
+                onChange={(val) => setFormData({...formData, content: val || ''})}
+                height={500}
+                preview="edit"
+                style={{ backgroundColor: 'transparent' }}
+              />
+            </div>
           </div>
           <div className="md:col-span-2">
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Cover Image</label>

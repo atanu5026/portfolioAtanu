@@ -23,17 +23,17 @@ const SocialBand = () => {
   ];
 
   return (
-    <div className={`w-full flex overflow-x-auto border-y ${borderColor} bg-zinc-950 mt-12`}>
+    <div className={`w-full flex overflow-x-auto border-y ${borderColor} bg-white dark:bg-zinc-950 mt-12`}>
       {links.map((link, index) => (
         <a 
           key={index} 
           href={link.url}
-          className={`flex-none w-[120px] md:w-auto md:flex-1 py-4 md:py-6 px-2 md:px-4 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 border-r ${borderColor} last:border-r-0 transition-colors ${hoverBg} hover:text-white group`}
+          className={`flex-none w-[120px] md:w-auto md:flex-1 py-4 md:py-6 px-2 md:px-4 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 border-r ${borderColor} last:border-r-0 transition-colors ${hoverBg} hover:text-slate-900 dark:text-white group`}
         >
-          <span className="text-slate-400 group-hover:text-white transition-colors">
+          <span className="text-slate-500 dark:text-slate-400 group-hover:text-slate-900 dark:text-white transition-colors">
             {link.icon}
           </span>
-          <span className="font-mono text-[10px] md:text-xs font-bold tracking-widest text-slate-300 group-hover:text-white transition-colors text-center">
+          <span className="font-mono text-[10px] md:text-xs font-bold tracking-widest text-slate-600 dark:text-slate-300 group-hover:text-slate-900 dark:text-white transition-colors text-center">
             {link.name}
           </span>
         </a>

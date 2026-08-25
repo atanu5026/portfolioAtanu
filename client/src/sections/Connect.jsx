@@ -58,7 +58,7 @@ const Connect = () => {
   return (
     <section id="connect" className={`min-h-[50vh] border-l-2 md:border-l-4 ${borderColor} pl-4 md:pl-8 mb-16 md:mb-32 scroll-mt-32`}>
       <h2 className={`text-2xl md:text-3xl font-bold mb-6 md:mb-8 uppercase tracking-widest ${accentColor}`}>Connect</h2>
-      <p className="text-base md:text-xl text-slate-300 max-w-2xl leading-relaxed mb-8 md:mb-12">
+      <p className="text-base md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed mb-8 md:mb-12">
         Let's build something extraordinary together. Whether it's a new project, a technical consultation, or just a conversation about the future of technology.
       </p>
 
@@ -74,7 +74,7 @@ const Connect = () => {
             <label className="block text-[10px] md:text-xs tracking-widest text-slate-500 mb-2 uppercase font-mono">Name</label>
             <input 
               type="text" 
-              className={`w-full bg-zinc-950 border border-slate-900 px-3 md:px-4 py-2 md:py-3 text-sm md:text-base text-white focus:outline-none transition-colors ${focusBorderColor}`}
+              className={`w-full bg-white dark:bg-zinc-950 border border-slate-200 dark:border-slate-900 px-3 md:px-4 py-2 md:py-3 text-sm md:text-base text-slate-900 dark:text-white focus:outline-none transition-colors ${focusBorderColor}`}
               placeholder="YOUR NAME"
               value={formData.name}
               onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -84,7 +84,7 @@ const Connect = () => {
             <label className="block text-[10px] md:text-xs tracking-widest text-slate-500 mb-2 uppercase font-mono">Email</label>
             <input 
               type="email" 
-              className={`w-full bg-zinc-950 border border-slate-900 px-3 md:px-4 py-2 md:py-3 text-sm md:text-base text-white focus:outline-none transition-colors ${focusBorderColor}`}
+              className={`w-full bg-white dark:bg-zinc-950 border border-slate-200 dark:border-slate-900 px-3 md:px-4 py-2 md:py-3 text-sm md:text-base text-slate-900 dark:text-white focus:outline-none transition-colors ${focusBorderColor}`}
               placeholder="YOUR EMAIL"
               value={formData.email}
               onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -96,7 +96,7 @@ const Connect = () => {
           <label className="block text-[10px] md:text-xs tracking-widest text-slate-500 mb-2 uppercase font-mono">Message</label>
           <textarea 
             rows="5"
-            className={`w-full bg-zinc-950 border border-slate-900 px-3 md:px-4 py-2 md:py-3 text-sm md:text-base text-white focus:outline-none transition-colors ${focusBorderColor}`}
+            className={`w-full bg-white dark:bg-zinc-950 border border-slate-200 dark:border-slate-900 px-3 md:px-4 py-2 md:py-3 text-sm md:text-base text-slate-900 dark:text-white focus:outline-none transition-colors ${focusBorderColor}`}
             placeholder="HOW CAN I HELP?"
             value={formData.message}
             onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -106,7 +106,7 @@ const Connect = () => {
         <button 
           type="submit"
           disabled={isSubmitting}
-          className={`bg-white text-black font-bold py-3 md:py-4 px-8 md:px-12 w-full md:w-auto uppercase tracking-widest transition-colors text-xs md:text-sm ${buttonBg} hover:text-white ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+          className={`bg-slate-900 text-white dark:bg-white dark:text-black font-bold py-3 md:py-4 px-8 md:px-12 w-full md:w-auto uppercase tracking-widest transition-colors text-xs md:text-sm ${buttonBg} hover:text-white dark:hover:text-white ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
         >
           {isSubmitting ? 'SENDING...' : 'Send Message'}
         </button>

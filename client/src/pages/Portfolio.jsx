@@ -68,7 +68,7 @@ const Portfolio = () => {
           <ScrollReveal>
             <section className={`min-h-[50vh] border-l-4 ${borderColor} pl-8`}>
               <h2 className={`text-3xl font-bold mb-8 uppercase tracking-widest ${accentColor}`}>About</h2>
-              <p className="text-xl text-slate-300 max-w-2xl leading-relaxed whitespace-pre-line">
+              <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed whitespace-pre-line">
                 {profile.aboutText}
               </p>
             </section>
@@ -106,17 +106,17 @@ const Portfolio = () => {
                     <div 
                       key={proj._id}
                       onClick={() => setSelectedProject(proj)}
-                      className="h-64 bg-zinc-950 border border-slate-900 flex flex-col items-center justify-center text-slate-500 shadow-xl group hover:border-slate-700 transition-colors cursor-pointer relative overflow-hidden p-6 text-center"
+                      className="h-64 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-slate-900 flex flex-col items-center justify-center text-slate-500 shadow-xl group hover:border-slate-300 dark:border-slate-700 transition-colors cursor-pointer relative overflow-hidden p-6 text-center"
                     >
                       {proj.thumbnail && (
                         <img src={proj.thumbnail} alt={proj.title} className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity" />
                       )}
                       <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity bg-current ${accentColor}`}></div>
                       
-                      <h3 className="text-xl font-bold text-white group-hover:text-white transition-colors tracking-widest uppercase z-10 relative mb-2">
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-slate-900 dark:text-white transition-colors tracking-widest uppercase z-10 relative mb-2">
                         {proj.title}
                       </h3>
-                      <p className="text-sm text-slate-400 z-10 relative line-clamp-2 max-w-[80%]">
+                      <p className="text-sm text-slate-500 dark:text-slate-400 z-10 relative line-clamp-2 max-w-[80%]">
                         {proj.shortDescription}
                       </p>
                     </div>

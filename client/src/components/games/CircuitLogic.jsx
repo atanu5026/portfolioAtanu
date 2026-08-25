@@ -162,11 +162,11 @@ const CircuitLogic = ({ onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950 font-mono">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-zinc-950 font-mono">
       <div className="absolute top-8 right-8">
         <button 
           onClick={onClose}
-          className="text-white hover:text-red-500 transition-colors border border-slate-800 p-2"
+          className="text-slate-900 dark:text-white hover:text-red-500 transition-colors border border-slate-300 dark:border-slate-800 p-2"
         >
           CLOSE [ESC]
         </button>
@@ -180,7 +180,7 @@ const CircuitLogic = ({ onClose }) => {
 
         {/* Game Board */}
         <div 
-          className="bg-black border border-slate-800 p-4 grid gap-1"
+          className="bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-800 p-4 grid gap-1"
           style={{ gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)` }}
         >
           {grid.map((row, y) => (
@@ -188,7 +188,7 @@ const CircuitLogic = ({ onClose }) => {
               <div 
                 key={`${x}-${y}`} 
                 onClick={() => rotateCell(x, y)}
-                className={`w-16 h-16 bg-zinc-900 border border-slate-800 flex items-center justify-center cursor-pointer hover:bg-zinc-800 transition-all ${cell.fixed ? 'opacity-50' : ''}`}
+                className={`w-16 h-16 bg-zinc-100 dark:bg-zinc-900 border border-slate-300 dark:border-slate-800 flex items-center justify-center cursor-pointer hover:bg-zinc-800 transition-all ${cell.fixed ? 'opacity-50' : ''}`}
                 style={{ transform: `rotate(${cell.rotation * 90}deg)` }}
               >
                 {renderTile(cell, powered[y][x])}
@@ -204,17 +204,17 @@ const CircuitLogic = ({ onClose }) => {
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="absolute inset-0 flex flex-col items-center justify-center bg-black/90 backdrop-blur-md"
+            className="absolute inset-0 flex flex-col items-center justify-center bg-zinc-50 dark:bg-black/90 backdrop-blur-md"
           >
             <h1 className={`text-9xl font-display ${accentClass} mb-8`} style={{ textShadow: `0 0 30px ${accentHex}` }}>
               SYSTEM ONLINE
             </h1>
-            <p className="text-xl text-white font-mono mb-8 tracking-widest">POWER ROUTED SUCCESSFULLY</p>
+            <p className="text-xl text-slate-900 dark:text-white font-mono mb-8 tracking-widest">POWER ROUTED SUCCESSFULLY</p>
             <div className="flex gap-4">
               {levelIndex < LEVELS.length - 1 ? (
                 <button 
                   onClick={() => setLevelIndex(i => i + 1)}
-                  className="px-8 py-3 border border-slate-600 text-white font-mono hover:bg-slate-800 transition-colors"
+                  className="px-8 py-3 border border-slate-600 text-slate-900 dark:text-white font-mono hover:bg-slate-800 transition-colors"
                 >
                   NEXT LEVEL
                 </button>
@@ -225,7 +225,7 @@ const CircuitLogic = ({ onClose }) => {
               )}
               <button 
                 onClick={onClose}
-                className="px-8 py-3 border border-slate-600 text-white font-mono hover:bg-slate-800 transition-colors"
+                className="px-8 py-3 border border-slate-600 text-slate-900 dark:text-white font-mono hover:bg-slate-800 transition-colors"
               >
                 EXIT TO ARCADE
               </button>

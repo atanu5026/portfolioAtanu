@@ -12,7 +12,7 @@ const SecretLogin = () => {
       {/* Button that appears on hover */}
       <button 
         onClick={() => navigate('/admin/login')}
-        className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900 border border-slate-700 text-slate-400 px-4 py-2 text-xs font-mono tracking-widest hover:text-white hover:border-white shadow-xl translate-y-4 group-hover:translate-y-0 transform absolute bottom-4 right-4"
+        className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-500 dark:text-slate-400 px-4 py-2 text-xs font-mono tracking-widest hover:text-slate-900 dark:text-white hover:border-white shadow-xl translate-y-4 group-hover:translate-y-0 transform absolute bottom-4 right-4"
       >
         [ADMIN]
       </button>

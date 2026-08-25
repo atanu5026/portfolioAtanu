@@ -104,7 +104,7 @@ const BlogEditor = () => {
 
   return (
     <div className="max-w-4xl pb-24">
-      <h2 className="text-xl font-bold tracking-widest uppercase mb-6 text-slate-300">Blog Manager</h2>
+      <h2 className="text-xl font-bold tracking-widest uppercase mb-6 text-slate-600 dark:text-slate-300">Blog Manager</h2>
       
       {message && (
         <div className={`mb-6 p-4 border text-sm ${message.type === 'success' ? 'border-green-500 text-green-500' : 'border-red-500 text-red-500'}`}>
@@ -112,27 +112,27 @@ const BlogEditor = () => {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="bg-zinc-950 border border-slate-900 p-6 space-y-6 mb-12">
-        <h3 className="text-sm font-bold tracking-widest text-slate-400 border-b border-slate-800 pb-2 uppercase">
+      <form onSubmit={handleSubmit} className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-slate-900 p-6 space-y-6 mb-12">
+        <h3 className="text-sm font-bold tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-300 dark:border-slate-800 pb-2 uppercase">
           {editingId ? 'Edit Blog' : 'Create New Blog'}
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Title</label>
-            <input required type="text" className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none" value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} />
+            <input required type="text" className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none" value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} />
           </div>
           <div>
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Slug (Unique)</label>
-            <input required type="text" className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none" value={formData.slug} onChange={e => setFormData({...formData, slug: e.target.value})} />
+            <input required type="text" className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none" value={formData.slug} onChange={e => setFormData({...formData, slug: e.target.value})} />
           </div>
           <div>
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Category</label>
-            <input type="text" className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none" value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} />
+            <input type="text" className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none" value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} />
           </div>
           <div>
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Read Time (mins)</label>
-            <input type="number" className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none" value={formData.readTime} onChange={e => setFormData({...formData, readTime: Number(e.target.value)})} />
+            <input type="number" className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none" value={formData.readTime} onChange={e => setFormData({...formData, readTime: Number(e.target.value)})} />
           </div>
           <div className="md:col-span-2" data-color-mode="dark">
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Markdown Content</label>
@@ -150,22 +150,22 @@ const BlogEditor = () => {
                 type="file" 
                 accept="image/*"
                 onChange={handleImageUpload}
-                className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none file:mr-4 file:py-2 file:px-4 file:border-0 file:text-xs file:font-bold file:uppercase file:tracking-widest file:bg-white file:text-black hover:file:bg-slate-200"
+                className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none file:mr-4 file:py-2 file:px-4 file:border-0 file:text-xs file:font-bold file:uppercase file:tracking-widest file:bg-white file:text-black hover:file:bg-slate-200"
               />
-              {uploadingImage && <span className="text-xs text-slate-400 uppercase tracking-widest whitespace-nowrap">Uploading...</span>}
+              {uploadingImage && <span className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest whitespace-nowrap">Uploading...</span>}
             </div>
             {formData.coverImage && (
-              <img src={formData.coverImage} alt="Cover Preview" className="mt-4 h-32 object-cover border border-slate-700" />
+              <img src={formData.coverImage} alt="Cover Preview" className="mt-4 h-32 object-cover border border-slate-300 dark:border-slate-700" />
             )}
           </div>
           <div className="md:col-span-2">
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Tags (comma separated)</label>
-            <input type="text" className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none" value={formData.tags} onChange={e => setFormData({...formData, tags: e.target.value})} />
+            <input type="text" className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none" value={formData.tags} onChange={e => setFormData({...formData, tags: e.target.value})} />
           </div>
           <div className="flex items-center gap-4">
             <label className="flex items-center gap-2 cursor-pointer">
               <input type="checkbox" checked={formData.isPublished} onChange={e => setFormData({...formData, isPublished: e.target.checked})} className="w-4 h-4" />
-              <span className="text-xs uppercase tracking-widest text-slate-400">Published</span>
+              <span className="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400">Published</span>
             </label>
           </div>
         </div>
@@ -175,7 +175,7 @@ const BlogEditor = () => {
             {editingId ? 'Update Blog' : 'Create Blog'}
           </button>
           {editingId && (
-            <button type="button" onClick={handleCancel} className="flex-1 border border-slate-700 text-slate-400 font-bold py-3 uppercase tracking-widest hover:text-white">
+            <button type="button" onClick={handleCancel} className="flex-1 border border-slate-300 dark:border-slate-700 text-slate-500 dark:text-slate-400 font-bold py-3 uppercase tracking-widest hover:text-slate-900 dark:text-white">
               Cancel
             </button>
           )}
@@ -184,9 +184,9 @@ const BlogEditor = () => {
 
       <div className="space-y-4">
         {blogs.map(blog => (
-          <div key={blog._id} className="bg-zinc-950 border border-slate-900 p-4 flex justify-between items-center">
+          <div key={blog._id} className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-slate-900 p-4 flex justify-between items-center">
             <div>
-              <h4 className="font-bold text-white uppercase tracking-widest">{blog.title}</h4>
+              <h4 className="font-bold text-slate-900 dark:text-white uppercase tracking-widest">{blog.title}</h4>
               <p className="text-xs text-slate-500 tracking-widest">{blog.category}</p>
             </div>
             <div className="flex gap-4">

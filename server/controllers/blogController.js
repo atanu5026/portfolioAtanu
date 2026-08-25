@@ -110,6 +110,30 @@ const incrementView = async (req, res) => {
   }
 };
 
+// @desc    Add a comment
+// @route   POST /api/blogs/:id/comments
+// @access  Public
+const addComment = async (req, res) => {
+  try {
+    const { name, text } = req.body;
+    if (!name || !text) {
+      return res.status(400).json({ message: 'Name and text are required' });
+    }
+    
+    const blog = await Blog.findById(req.params.id);
+    if (blog) {
+      const comment = { name, text, createdAt: Date.now() };
+      blog.comments.push(comment);
+      await blog.save();
+      res.status(201).json(blog.comments);
+    } else {
+      res.status(404).json({ message: 'Blog not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getBlogs,
   getBlogById,
@@ -117,5 +141,6 @@ module.exports = {
   updateBlog,
   deleteBlog,
   likeBlog,
-  incrementView
+  incrementView,
+  addComment
 };

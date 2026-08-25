@@ -46,7 +46,14 @@ const blogSchema = new mongoose.Schema({
   },
   keywords: {
     type: String,
-  }
+  },
+  comments: [
+    {
+      name: { type: String, required: true },
+      text: { type: String, required: true },
+      createdAt: { type: Date, default: Date.now }
+    }
+  ]
 }, { timestamps: true });
 
 module.exports = mongoose.model('Blog', blogSchema);

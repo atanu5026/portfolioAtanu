@@ -34,7 +34,7 @@ const Hero = () => {
           Hello, I am
         </p>
         <h1 className="text-5xl md:text-8xl font-black mb-4 uppercase tracking-tighter leading-none md:leading-normal">
-          {profileData.name.split(' ')[0]} <span className="text-white/40 block md:inline">{profileData.name.split(' ').slice(1).join(' ')}</span>
+          {profileData.name.split(' ')[0]} <span className="text-slate-900 dark:text-white/40 block md:inline">{profileData.name.split(' ').slice(1).join(' ')}</span>
         </h1>
         
         <h2 className={`text-2xl md:text-4xl font-bold mb-6 md:mb-8 uppercase tracking-widest flex items-center gap-4 ${accentColor}`}>
@@ -42,7 +42,7 @@ const Hero = () => {
           {profile.heroTitle}
         </h2>
 
-        <p className="max-w-xl md:max-w-2xl text-base md:text-lg text-slate-400 leading-relaxed mb-8 md:mb-12">
+        <p className="max-w-xl md:max-w-2xl text-base md:text-lg text-slate-500 dark:text-slate-400 leading-relaxed mb-8 md:mb-12">
           {profile.heroDescription}
         </p>
 
@@ -55,7 +55,7 @@ const Hero = () => {
             </a>
             <a 
               href="#connect"
-              className="border border-slate-700 px-6 md:px-8 py-3 text-sm font-bold tracking-widest uppercase text-center w-full md:w-auto text-slate-400 hover:text-white hover:border-white transition-colors"
+              className="border border-slate-300 dark:border-slate-700 px-6 md:px-8 py-3 text-sm font-bold tracking-widest uppercase text-center w-full md:w-auto text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:text-white hover:border-white transition-colors"
             >
               Contact Me
             </a>

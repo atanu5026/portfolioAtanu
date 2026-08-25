@@ -36,14 +36,14 @@ const Blogs = () => {
               <div 
                 key={blog._id} 
                 onClick={() => navigate(`/blog/${blog._id}`)}
-                className="bg-zinc-950 border border-slate-900 p-6 shadow-xl group hover:border-slate-700 transition-colors cursor-pointer flex flex-col justify-between min-h-[200px] md:min-h-[250px]"
+                className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-slate-900 p-6 shadow-xl group hover:border-slate-300 dark:border-slate-700 transition-colors cursor-pointer flex flex-col justify-between min-h-[200px] md:min-h-[250px]"
               >
                 <div>
                   <p className="font-mono text-[10px] md:text-xs text-slate-500 mb-2 md:mb-4 tracking-widest uppercase">
                     {new Date(blog.publishedAt || blog.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                   </p>
-                  <h3 className="text-lg md:text-xl font-bold text-white mb-2 group-hover:text-slate-300 transition-colors">{blog.title}</h3>
-                  <p className="text-slate-400 text-xs md:text-sm leading-relaxed line-clamp-3">
+                  <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-slate-600 dark:text-slate-300 transition-colors">{blog.title}</h3>
+                  <p className="text-slate-500 dark:text-slate-400 text-xs md:text-sm leading-relaxed line-clamp-3">
                     {/* Render plain text snippet from markdown or just rely on title */}
                     {blog.category} • {blog.readTime} min read
                   </p>

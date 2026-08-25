@@ -49,7 +49,7 @@ const BlogModal = ({ blog, onClose }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onScroll={handleScroll}
-          className="fixed inset-0 z-[100] flex items-start justify-center bg-black/90 backdrop-blur-md p-4 pt-24 pb-24 overflow-y-auto"
+          className="fixed inset-0 z-[100] flex items-start justify-center bg-zinc-50 dark:bg-black/90 backdrop-blur-md p-4 pt-24 pb-24 overflow-y-auto"
         >
           <motion.div 
             style={{ scaleX }}
@@ -59,7 +59,7 @@ const BlogModal = ({ blog, onClose }) => {
           <div className="absolute top-8 right-8 z-50">
             <button 
               onClick={onClose}
-              className="text-white hover:text-red-500 transition-colors border border-slate-800 p-2 font-mono uppercase tracking-widest text-xs"
+              className="text-slate-900 dark:text-white hover:text-red-500 transition-colors border border-slate-300 dark:border-slate-800 p-2 font-mono uppercase tracking-widest text-xs"
             >
               CLOSE [ESC]
             </button>
@@ -68,13 +68,13 @@ const BlogModal = ({ blog, onClose }) => {
           <motion.div 
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="w-full max-w-4xl bg-zinc-950 border border-slate-900 p-8 md:p-16 my-16 shadow-2xl relative"
+            className="w-full max-w-4xl bg-white dark:bg-zinc-950 border border-slate-200 dark:border-slate-900 p-8 md:p-16 my-16 shadow-2xl relative"
           >
             {blog.coverImage && (
               <img src={blog.coverImage} alt={blog.title} className="w-full h-64 object-cover mb-8 rounded-sm" />
             )}
             
-            <div className="mb-12 border-b border-slate-900 pb-8">
+            <div className="mb-12 border-b border-slate-200 dark:border-slate-900 pb-8">
               <p className="font-mono text-xs text-slate-500 mb-4 tracking-widest uppercase">
                 {new Date(blog.publishedAt || blog.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} 
                 <span className="mx-2">•</span> {blog.readTime} MIN READ 
@@ -86,7 +86,7 @@ const BlogModal = ({ blog, onClose }) => {
               {blog.tags && blog.tags.length > 0 && (
                 <div className="flex gap-2 flex-wrap">
                   {blog.tags.map(tag => (
-                    <span key={tag} className="text-xs font-mono bg-slate-900 text-slate-400 px-2 py-1 tracking-widest uppercase border border-slate-800">
+                    <span key={tag} className="text-xs font-mono bg-slate-900 text-slate-500 dark:text-slate-400 px-2 py-1 tracking-widest uppercase border border-slate-300 dark:border-slate-800">
                       {tag}
                     </span>
                   ))}

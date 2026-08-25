@@ -131,7 +131,7 @@ const TechStack = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0 mb-8 md:mb-12">
         <div>
           <h2 className={`text-2xl md:text-3xl font-bold mb-2 md:mb-4 uppercase tracking-widest ${accentColor}`}>Tech Stack</h2>
-          <p className="text-slate-400 text-xs md:text-sm uppercase tracking-widest font-mono">
+          <p className="text-slate-500 dark:text-slate-400 text-xs md:text-sm uppercase tracking-widest font-mono">
             Core capabilities & technologies
           </p>
         </div>
@@ -139,7 +139,7 @@ const TechStack = () => {
         {stack.length > 0 && (
           <button 
             onClick={() => setIsBroken(!isBroken)}
-            className={`px-3 md:px-4 py-2 text-[10px] md:text-xs font-mono tracking-widest border transition-all ${isBroken ? `bg-red-500/20 text-red-500 border-red-500 hover:bg-red-500/30` : `text-slate-400 border-slate-700 ${borderAccent} hover:text-white`}`}
+            className={`px-3 md:px-4 py-2 text-[10px] md:text-xs font-mono tracking-widest border transition-all ${isBroken ? `bg-red-500/20 text-red-500 border-red-500 hover:bg-red-500/30` : `text-slate-500 dark:text-slate-400 border-slate-300 dark:border-slate-700 ${borderAccent} hover:text-slate-900 dark:text-white`}`}
           >
             {isBroken ? 'RESTORE LAYOUT' : 'BREAK LAYOUT'}
           </button>
@@ -152,7 +152,7 @@ const TechStack = () => {
           {isBroken && (
             <div 
               ref={sceneRef} 
-              className={`w-full h-[400px] md:h-[500px] bg-zinc-950 border border-slate-900 rounded-xl overflow-hidden cursor-grab active:cursor-grabbing shadow-inner shadow-${blockColor}/10`}
+              className={`w-full h-[400px] md:h-[500px] bg-white dark:bg-zinc-950 border border-slate-200 dark:border-slate-900 rounded-xl overflow-hidden cursor-grab active:cursor-grabbing shadow-inner shadow-${blockColor}/10`}
             >
               {/* Matter.js Canvas renders here */}
             </div>
@@ -165,11 +165,11 @@ const TechStack = () => {
                 <ScrollReveal key={idx}>
                   <motion.div 
                     whileHover={{ y: -5 }}
-                    className={`h-full bg-zinc-950/80 backdrop-blur-md border border-slate-800 ${borderAccent} p-8 shadow-xl hover:${glowAccent} transition-colors transition-shadow duration-300 relative overflow-hidden group`}
+                    className={`h-full bg-white dark:bg-zinc-950/80 backdrop-blur-md border border-slate-300 dark:border-slate-800 ${borderAccent} p-8 shadow-xl hover:${glowAccent} transition-colors transition-shadow duration-300 relative overflow-hidden group`}
                   >
                     <div className={`absolute -top-24 -right-24 w-48 h-48 ${bgAccent} rounded-full blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none`}></div>
                     
-                    <h3 className={`text-xl font-bold mb-6 tracking-widest uppercase text-white group-hover:${accentColor} transition-colors relative z-10`}>
+                    <h3 className={`text-xl font-bold mb-6 tracking-widest uppercase text-slate-900 dark:text-white group-hover:${accentColor} transition-colors relative z-10`}>
                       {group.category}
                     </h3>
                     
@@ -177,7 +177,7 @@ const TechStack = () => {
                       {group.skills.map((skill, sIdx) => (
                         <span 
                           key={sIdx}
-                          className="px-4 py-2 bg-black border border-slate-800 rounded-none text-slate-300 text-sm font-mono tracking-widest hover:text-white hover:border-slate-500 transition-colors cursor-default"
+                          className="px-4 py-2 bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-800 rounded-none text-slate-600 dark:text-slate-300 text-sm font-mono tracking-widest hover:text-slate-900 dark:text-white hover:border-slate-500 transition-colors cursor-default"
                         >
                           {skill}
                         </span>
@@ -190,7 +190,7 @@ const TechStack = () => {
           )}
         </div>
       ) : (
-        <div className="p-12 border border-slate-900 bg-zinc-950 text-center text-slate-500 font-mono tracking-widest uppercase">
+        <div className="p-12 border border-slate-200 dark:border-slate-900 bg-white dark:bg-zinc-950 text-center text-slate-500 font-mono tracking-widest uppercase">
           No tech stack data found. Update via Admin Dashboard.
         </div>
       )}

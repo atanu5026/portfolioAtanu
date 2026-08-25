@@ -44,7 +44,7 @@ const InboxViewer = () => {
 
   return (
     <div className="max-w-4xl pb-24">
-      <h2 className="text-xl font-bold tracking-widest uppercase mb-6 text-slate-300">Inbox</h2>
+      <h2 className="text-xl font-bold tracking-widest uppercase mb-6 text-slate-600 dark:text-slate-300">Inbox</h2>
       
       {error && (
         <div className="mb-6 p-4 border border-red-500 text-red-500 text-sm">
@@ -57,11 +57,11 @@ const InboxViewer = () => {
           <p className="text-slate-500 font-mono text-sm tracking-widest uppercase">No messages yet.</p>
         ) : (
           messages.map(msg => (
-            <div key={msg._id} className={`bg-zinc-950 border p-6 ${msg.isRead ? 'border-slate-900 opacity-75' : 'border-slate-500'}`}>
+            <div key={msg._id} className={`bg-white dark:bg-zinc-950 border p-6 ${msg.isRead ? 'border-slate-200 dark:border-slate-900 opacity-75' : 'border-slate-500'}`}>
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h4 className="font-bold text-white uppercase tracking-widest">{msg.name}</h4>
-                  <p className="text-xs text-slate-400 tracking-widest">{msg.email}</p>
+                  <h4 className="font-bold text-slate-900 dark:text-white uppercase tracking-widest">{msg.name}</h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 tracking-widest">{msg.email}</p>
                 </div>
                 <div className="text-right">
                   <p className="text-xs text-slate-500 font-mono tracking-widest uppercase mb-2">
@@ -72,7 +72,7 @@ const InboxViewer = () => {
                   )}
                 </div>
               </div>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6 whitespace-pre-line bg-black p-4 border border-slate-900">
+              <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6 whitespace-pre-line bg-zinc-50 dark:bg-black p-4 border border-slate-200 dark:border-slate-900">
                 {msg.message}
               </p>
               <div className="flex gap-4">

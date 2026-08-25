@@ -147,7 +147,7 @@ const IoTSandbox = ({ onClose }) => {
         return (
           <div className="flex flex-col items-center justify-center w-full h-full relative">
             <div className="w-1 h-2 bg-slate-400 absolute top-0" />
-            <div className="w-6 h-4 border-2 border-slate-400 flex items-center justify-center text-[8px] text-slate-400">12V</div>
+            <div className="w-6 h-4 border-2 border-slate-400 flex items-center justify-center text-[8px] text-slate-500 dark:text-slate-400">12V</div>
           </div>
         );
       case BULB:
@@ -187,7 +187,7 @@ const IoTSandbox = ({ onClose }) => {
             <motion.div 
               animate={{ rotate: isPowered ? 360 : 0 }}
               transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-              className="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold transition-colors duration-300 bg-zinc-900 z-10" 
+              className="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold transition-colors duration-300 bg-zinc-100 dark:bg-zinc-900 z-10" 
               style={{ borderColor: powerColor, color: powerColor, boxShadow: glow }}
             >
               M
@@ -216,11 +216,11 @@ const IoTSandbox = ({ onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-zinc-950 font-mono">
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white dark:bg-zinc-950 font-mono">
       <div className="absolute top-8 right-8">
         <button 
           onClick={onClose}
-          className="text-white hover:text-red-500 transition-colors border border-slate-800 p-2"
+          className="text-slate-900 dark:text-white hover:text-red-500 transition-colors border border-slate-300 dark:border-slate-800 p-2"
         >
           CLOSE [ESC]
         </button>
@@ -233,7 +233,7 @@ const IoTSandbox = ({ onClose }) => {
 
       {/* Grid Canvas */}
       <div 
-        className="bg-black border border-slate-800 grid"
+        className="bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-800 grid"
         style={{ gridTemplateColumns: `repeat(${COLS}, 1fr)` }}
       >
         {grid.map((row, y) => (
@@ -241,7 +241,7 @@ const IoTSandbox = ({ onClose }) => {
             <div 
               key={`${x}-${y}`} 
               onClick={() => handleCellClick(x, y)}
-              className="w-12 h-12 border border-slate-900/50 hover:bg-zinc-900 transition-colors cursor-crosshair flex items-center justify-center relative"
+              className="w-12 h-12 border border-slate-200 dark:border-slate-900/50 hover:bg-zinc-100 dark:bg-zinc-900 transition-colors cursor-crosshair flex items-center justify-center relative"
               style={{ transform: `rotate(${cell.rotation * 90}deg)` }}
             >
               {renderComponent(cell, powered[y][x])}
@@ -251,7 +251,7 @@ const IoTSandbox = ({ onClose }) => {
       </div>
 
       {/* Bottom Inventory Toolbar */}
-      <div className="fixed bottom-8 flex gap-4 bg-black border border-slate-800 p-4 rounded-xl shadow-2xl">
+      <div className="fixed bottom-8 flex gap-4 bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-800 p-4 rounded-xl shadow-2xl">
         {TOOLS.map((tool) => {
           const Icon = tool.icon;
           const isActive = activeTool === tool.id;
@@ -259,7 +259,7 @@ const IoTSandbox = ({ onClose }) => {
             <button
               key={tool.id}
               onClick={() => setActiveTool(tool.id)}
-              className={`flex flex-col items-center justify-center w-24 h-20 border rounded-lg transition-colors ${isActive ? 'bg-slate-900 ' + accentClass + ' ' + (identity === 'engineering' ? 'border-orange-500' : 'border-blue-500') : 'border-slate-800 text-slate-500 hover:text-slate-300 hover:border-slate-600'}`}
+              className={`flex flex-col items-center justify-center w-24 h-20 border rounded-lg transition-colors ${isActive ? 'bg-slate-900 ' + accentClass + ' ' + (identity === 'engineering' ? 'border-orange-500' : 'border-blue-500') : 'border-slate-300 dark:border-slate-800 text-slate-500 hover:text-slate-600 dark:text-slate-300 hover:border-slate-600'}`}
             >
               <Icon size={24} className="mb-2" />
               <span className="text-[10px] tracking-widest">{tool.name}</span>

@@ -36,7 +36,7 @@ const Experience = () => {
     <section className={`border-l-2 md:border-l-4 ${borderColor} pl-4 md:pl-8 py-8 md:py-12`}>
       <h2 className={`text-2xl md:text-3xl font-bold mb-8 md:mb-16 uppercase tracking-widest ${accentColor}`}>Experience Timeline</h2>
       
-      <div className="relative border-l border-slate-800 ml-2 md:ml-8 space-y-12 md:space-y-16 pb-8">
+      <div className="relative border-l border-slate-300 dark:border-slate-800 ml-2 md:ml-8 space-y-12 md:space-y-16 pb-8">
         {experiences.length === 0 ? (
           <p className="text-slate-500 font-mono text-sm tracking-widest uppercase">No experience listed for this identity.</p>
         ) : (
@@ -59,14 +59,14 @@ const Experience = () => {
               />
               
               <div className="group flex flex-col items-start">
-                <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-slate-500 mb-2 border border-slate-800 px-3 py-1 bg-black">
+                <span className="font-mono text-[10px] md:text-xs tracking-widest uppercase text-slate-500 mb-2 border border-slate-300 dark:border-slate-800 px-3 py-1 bg-zinc-50 dark:bg-black">
                   {exp.year}
                 </span>
-                <h3 className={`text-lg md:text-2xl font-bold text-white group-hover:${accentColor.split(' ')[0]} transition-colors uppercase tracking-widest mb-1`}>
+                <h3 className={`text-lg md:text-2xl font-bold text-slate-900 dark:text-white group-hover:${accentColor.split(' ')[0]} transition-colors uppercase tracking-widest mb-1`}>
                   {exp.title}
                 </h3>
-                <h4 className="text-xs md:text-sm font-mono text-slate-400 mb-4">{exp.company}</h4>
-                <p className="text-slate-300 leading-relaxed max-w-2xl text-sm md:text-base whitespace-pre-line">
+                <h4 className="text-xs md:text-sm font-mono text-slate-500 dark:text-slate-400 mb-4">{exp.company}</h4>
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl text-sm md:text-base whitespace-pre-line">
                   {exp.description}
                 </p>
               </div>

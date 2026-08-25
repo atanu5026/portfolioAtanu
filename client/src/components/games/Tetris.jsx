@@ -169,10 +169,10 @@ const Tetris = ({ onClose }) => {
   }
 
   return (
-    <div className="relative w-full h-screen bg-zinc-950 flex flex-col items-center justify-center overflow-hidden font-mono">
+    <div className="relative w-full h-screen bg-white dark:bg-zinc-950 flex flex-col items-center justify-center overflow-hidden font-mono">
       {/* Game Board */}
       <div 
-        className="relative border border-slate-900 bg-black shadow-2xl grid gap-[1px]" 
+        className="relative border border-slate-200 dark:border-slate-900 bg-zinc-50 dark:bg-black shadow-2xl grid gap-[1px]" 
         style={{ 
           gridTemplateColumns: `repeat(${BOARD_WIDTH}, minmax(0, 1fr))`,
           width: 'min(100vw, 50vh)',
@@ -183,7 +183,7 @@ const Tetris = ({ onClose }) => {
           row.map((cell, x) => (
             <div 
               key={`${x}-${y}`} 
-              className={`w-full h-full ${cell > 0 ? bgClass : 'bg-zinc-900'} ${cell === 2 ? 'opacity-90' : ''}`}
+              className={`w-full h-full ${cell > 0 ? bgClass : 'bg-zinc-100 dark:bg-zinc-900'} ${cell === 2 ? 'opacity-90' : ''}`}
               style={cell > 0 ? { boxShadow: `0 0 10px ${accentHex}` } : {}}
             />
           ))
@@ -194,13 +194,13 @@ const Tetris = ({ onClose }) => {
       <div className="absolute top-8 left-8 z-10 space-y-4">
         <div>
           <h2 className={`text-6xl font-bold font-display tracking-widest ${accentClass}`}>TETRIS</h2>
-          <p className="text-white text-xl mt-2 uppercase tracking-widest font-bold">SCORE: <span className={accentClass}>{score}</span></p>
+          <p className="text-slate-900 dark:text-white text-xl mt-2 uppercase tracking-widest font-bold">SCORE: <span className={accentClass}>{score}</span></p>
         </div>
 
         {!isStarted && !gameOver && (
           <button 
             onClick={startGame}
-            className={`px-8 py-3 bg-black border border-slate-600 text-white hover:bg-slate-800 transition-colors tracking-widest font-bold`}
+            className={`px-8 py-3 bg-zinc-50 dark:bg-black border border-slate-600 text-slate-900 dark:text-white hover:bg-slate-800 transition-colors tracking-widest font-bold`}
           >
             START GAME
           </button>
@@ -217,7 +217,7 @@ const Tetris = ({ onClose }) => {
       <div className="absolute top-8 right-8 z-10">
         <button 
           onClick={onClose}
-          className="text-slate-500 hover:text-white transition-colors text-xs tracking-widest uppercase"
+          className="text-slate-500 hover:text-slate-900 dark:text-white transition-colors text-xs tracking-widest uppercase"
         >
           Close Game
         </button>
@@ -240,13 +240,13 @@ const Tetris = ({ onClose }) => {
             <div className="flex gap-6">
               <button 
                 onClick={startGame}
-                className="bg-black text-white px-8 py-4 font-bold tracking-widest text-sm uppercase hover:bg-zinc-900 transition-colors"
+                className="bg-zinc-50 dark:bg-black text-slate-900 dark:text-white px-8 py-4 font-bold tracking-widest text-sm uppercase hover:bg-zinc-100 dark:bg-zinc-900 transition-colors"
               >
                 RESTART
               </button>
               <button 
                 onClick={onClose}
-                className="border-2 border-black text-black px-8 py-4 font-bold tracking-widest text-sm uppercase hover:bg-black/10 transition-colors"
+                className="border-2 border-black text-black px-8 py-4 font-bold tracking-widest text-sm uppercase hover:bg-zinc-50 dark:bg-black/10 transition-colors"
               >
                 EXIT TO ARCADE
               </button>

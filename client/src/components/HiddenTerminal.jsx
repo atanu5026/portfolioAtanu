@@ -159,13 +159,13 @@ const HiddenTerminal = () => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 50, scale: 0.95 }}
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="fixed bottom-4 right-4 md:bottom-8 md:right-8 w-full max-w-[90vw] md:max-w-[600px] h-[400px] bg-zinc-950/90 backdrop-blur-md border border-slate-800 rounded-lg shadow-2xl z-[100] flex flex-col font-mono overflow-hidden"
+          className="fixed bottom-4 right-4 md:bottom-8 md:right-8 w-full max-w-[90vw] md:max-w-[600px] h-[400px] bg-white dark:bg-zinc-950/90 backdrop-blur-md border border-slate-300 dark:border-slate-800 rounded-lg shadow-2xl z-[100] flex flex-col font-mono overflow-hidden"
         >
           {/* Terminal Header */}
-          <div className="bg-zinc-900 border-b border-slate-800 px-4 py-2 flex justify-between items-center cursor-move">
+          <div className="bg-zinc-100 dark:bg-zinc-900 border-b border-slate-300 dark:border-slate-800 px-4 py-2 flex justify-between items-center cursor-move">
             <div className="flex items-center gap-2">
               <FaTerminal className="text-slate-500" />
-              <span className="text-xs text-slate-400 font-semibold tracking-wider">root@atanu-os:~</span>
+              <span className="text-xs text-slate-500 dark:text-slate-400 font-semibold tracking-wider">root@atanu-os:~</span>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-slate-500 hover:text-red-500 transition-colors">
               <FaTimes />
@@ -180,7 +180,7 @@ const HiddenTerminal = () => {
             {output.map((line, i) => (
               <div 
                 key={i} 
-                className={`${line.type === 'user' ? accentColor : 'text-slate-300'} ${line.text.includes('ERROR') ? 'text-red-500' : ''}`}
+                className={`${line.type === 'user' ? accentColor : 'text-slate-600 dark:text-slate-300'} ${line.text.includes('ERROR') ? 'text-red-500' : ''}`}
               >
                 {line.text}
               </div>
@@ -195,7 +195,7 @@ const HiddenTerminal = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleCommand}
-                className="flex-1 bg-transparent border-none outline-none text-slate-300 font-mono shadow-none focus:ring-0 p-0"
+                className="flex-1 bg-transparent border-none outline-none text-slate-600 dark:text-slate-300 font-mono shadow-none focus:ring-0 p-0"
                 autoComplete="off"
                 spellCheck="false"
               />

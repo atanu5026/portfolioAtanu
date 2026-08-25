@@ -103,9 +103,9 @@ const Snake = ({ onClose }) => {
   }, [direction, food, generateFood, isDead]);
 
   return (
-    <div className="relative w-full h-screen bg-zinc-950 flex flex-col items-center justify-center overflow-hidden font-mono">
+    <div className="relative w-full h-screen bg-white dark:bg-zinc-950 flex flex-col items-center justify-center overflow-hidden font-mono">
       <div 
-        className="relative border border-slate-900 bg-black shadow-2xl"
+        className="relative border border-slate-200 dark:border-slate-900 bg-zinc-50 dark:bg-black shadow-2xl"
         style={{
           width: 'min(100vw, 100vh)',
           height: 'min(100vw, 100vh)',
@@ -140,13 +140,13 @@ const Snake = ({ onClose }) => {
         />
       </div>
 
-      <div className="absolute top-8 left-8 z-10 text-white text-xl tracking-widest font-bold">
+      <div className="absolute top-8 left-8 z-10 text-slate-900 dark:text-white text-xl tracking-widest font-bold">
         SCORE: <span className={accentText}>{score}</span>
       </div>
       
       <button 
         onClick={onClose}
-        className="absolute top-8 right-8 z-10 text-slate-500 hover:text-white transition-colors text-xs tracking-widest uppercase"
+        className="absolute top-8 right-8 z-10 text-slate-500 hover:text-slate-900 dark:text-white transition-colors text-xs tracking-widest uppercase"
       >
         Close Game
       </button>
@@ -164,13 +164,13 @@ const Snake = ({ onClose }) => {
             <div className="flex gap-6">
               <button 
                 onClick={resetGame}
-                className="bg-black text-white px-8 py-4 font-bold tracking-widest text-sm uppercase hover:bg-zinc-900 transition-colors"
+                className="bg-zinc-50 dark:bg-black text-slate-900 dark:text-white px-8 py-4 font-bold tracking-widest text-sm uppercase hover:bg-zinc-100 dark:bg-zinc-900 transition-colors"
               >
                 Restart
               </button>
               <button 
                 onClick={onClose}
-                className="border-2 border-black text-black px-8 py-4 font-bold tracking-widest text-sm uppercase hover:bg-black/10 transition-colors"
+                className="border-2 border-black text-black px-8 py-4 font-bold tracking-widest text-sm uppercase hover:bg-zinc-50 dark:bg-black/10 transition-colors"
               >
                 Go to Portfolio
               </button>

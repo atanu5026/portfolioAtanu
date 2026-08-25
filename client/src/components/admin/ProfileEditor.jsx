@@ -123,7 +123,7 @@ const ProfileEditor = () => {
 
   return (
     <div className="max-w-4xl pb-24">
-      <h2 className="text-xl font-bold tracking-widest uppercase mb-6 text-slate-300">Content Manager</h2>
+      <h2 className="text-xl font-bold tracking-widest uppercase mb-6 text-slate-600 dark:text-slate-300">Content Manager</h2>
       
       {message && (
         <div className={`mb-6 p-4 border text-sm ${message.type === 'success' ? 'border-green-500 text-green-500' : 'border-red-500 text-red-500'}`}>
@@ -133,14 +133,14 @@ const ProfileEditor = () => {
 
       <form onSubmit={handleSubmit} className="space-y-12">
         {/* Global Settings */}
-        <section className="bg-zinc-950 border border-slate-900 p-6 space-y-6">
-          <h3 className="text-sm font-bold tracking-widest text-slate-400 border-b border-slate-800 pb-2 uppercase">Global Settings</h3>
+        <section className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-slate-900 p-6 space-y-6">
+          <h3 className="text-sm font-bold tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-300 dark:border-slate-800 pb-2 uppercase">Global Settings</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Full Name</label>
               <input 
                 type="text" 
-                className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none focus:border-white transition-colors"
+                className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-white transition-colors"
                 value={formData.name || ''}
                 onChange={(e) => handleGlobalChange(e, 'name')}
               />
@@ -149,7 +149,7 @@ const ProfileEditor = () => {
               <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Resume URL</label>
               <input 
                 type="text" 
-                className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none focus:border-white transition-colors"
+                className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-white transition-colors"
                 value={formData.resumeUrl || ''}
                 onChange={(e) => handleGlobalChange(e, 'resumeUrl')}
               />
@@ -158,13 +158,13 @@ const ProfileEditor = () => {
         </section>
 
         {/* Engineering Profile */}
-        <section className="bg-zinc-950 border border-orange-900/30 border-t-4 border-t-orange-500 p-6 space-y-6">
-          <h3 className="text-sm font-bold tracking-widest text-orange-500 border-b border-slate-800 pb-2 uppercase">Engineering Identity</h3>
+        <section className="bg-white dark:bg-zinc-950 border border-orange-900/30 border-t-4 border-t-orange-500 p-6 space-y-6">
+          <h3 className="text-sm font-bold tracking-widest text-orange-500 border-b border-slate-300 dark:border-slate-800 pb-2 uppercase">Engineering Identity</h3>
           <div>
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Hero Title</label>
             <input 
               type="text" 
-              className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors"
+              className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-orange-500 transition-colors"
               value={formData.engineering?.heroTitle || ''}
               onChange={(e) => handleChange(e, 'engineering', 'heroTitle')}
             />
@@ -173,7 +173,7 @@ const ProfileEditor = () => {
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Hero Description</label>
             <textarea 
               rows="3"
-              className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors"
+              className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-orange-500 transition-colors"
               value={formData.engineering?.heroDescription || ''}
               onChange={(e) => handleChange(e, 'engineering', 'heroDescription')}
             />
@@ -182,13 +182,13 @@ const ProfileEditor = () => {
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">About Section Text</label>
             <textarea 
               rows="5"
-              className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors"
+              className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-orange-500 transition-colors"
               value={formData.engineering?.aboutText || ''}
               onChange={(e) => handleChange(e, 'engineering', 'aboutText')}
             />
           </div>
           <div>
-            <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-2">
+            <div className="flex justify-between items-center mb-4 border-b border-slate-300 dark:border-slate-800 pb-2">
               <label className="block text-xs tracking-widest text-slate-500 uppercase">Education Timeline</label>
               <button type="button" onClick={() => handleAddEducation('engineering')} className="text-xs text-orange-500 hover:text-orange-400 tracking-widest uppercase">
                 + Add Entry
@@ -196,28 +196,28 @@ const ProfileEditor = () => {
             </div>
             <div className="space-y-4">
               {formData.engineering?.education?.map((edu, idx) => (
-                <div key={idx} className="bg-black border border-slate-800 p-4 relative pt-12 md:pt-4">
+                <div key={idx} className="bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-800 p-4 relative pt-12 md:pt-4">
                   <div className="absolute top-4 right-4 flex gap-4">
-                    <button type="button" onClick={() => handleMoveEducation('engineering', idx, 'up')} disabled={idx === 0} className={`text-xs uppercase tracking-widest ${idx === 0 ? 'text-slate-700 cursor-not-allowed' : 'text-slate-400 hover:text-white'}`}>Up</button>
-                    <button type="button" onClick={() => handleMoveEducation('engineering', idx, 'down')} disabled={idx === (formData.engineering?.education?.length || 0) - 1} className={`text-xs uppercase tracking-widest ${idx === (formData.engineering?.education?.length || 0) - 1 ? 'text-slate-700 cursor-not-allowed' : 'text-slate-400 hover:text-white'}`}>Down</button>
+                    <button type="button" onClick={() => handleMoveEducation('engineering', idx, 'up')} disabled={idx === 0} className={`text-xs uppercase tracking-widest ${idx === 0 ? 'text-slate-700 cursor-not-allowed' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:text-white'}`}>Up</button>
+                    <button type="button" onClick={() => handleMoveEducation('engineering', idx, 'down')} disabled={idx === (formData.engineering?.education?.length || 0) - 1} className={`text-xs uppercase tracking-widest ${idx === (formData.engineering?.education?.length || 0) - 1 ? 'text-slate-700 cursor-not-allowed' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:text-white'}`}>Down</button>
                     <button type="button" onClick={() => handleRemoveEducation('engineering', idx)} className="text-xs text-red-500 hover:text-red-400 uppercase tracking-widest">Remove</button>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs text-slate-500 mb-1">Year</label>
-                      <input type="text" className="w-full bg-zinc-950 border border-slate-800 px-3 py-2 text-white focus:outline-none focus:border-orange-500 text-sm" value={edu.year} onChange={(e) => handleEducationChange('engineering', idx, 'year', e.target.value)} />
+                      <input type="text" className="w-full bg-white dark:bg-zinc-950 border border-slate-300 dark:border-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-orange-500 text-sm" value={edu.year} onChange={(e) => handleEducationChange('engineering', idx, 'year', e.target.value)} />
                     </div>
                     <div>
                       <label className="block text-xs text-slate-500 mb-1">Institution</label>
-                      <input type="text" className="w-full bg-zinc-950 border border-slate-800 px-3 py-2 text-white focus:outline-none focus:border-orange-500 text-sm" value={edu.institution} onChange={(e) => handleEducationChange('engineering', idx, 'institution', e.target.value)} />
+                      <input type="text" className="w-full bg-white dark:bg-zinc-950 border border-slate-300 dark:border-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-orange-500 text-sm" value={edu.institution} onChange={(e) => handleEducationChange('engineering', idx, 'institution', e.target.value)} />
                     </div>
                     <div>
                       <label className="block text-xs text-slate-500 mb-1">Degree</label>
-                      <input type="text" className="w-full bg-zinc-950 border border-slate-800 px-3 py-2 text-white focus:outline-none focus:border-orange-500 text-sm" value={edu.degree} onChange={(e) => handleEducationChange('engineering', idx, 'degree', e.target.value)} />
+                      <input type="text" className="w-full bg-white dark:bg-zinc-950 border border-slate-300 dark:border-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-orange-500 text-sm" value={edu.degree} onChange={(e) => handleEducationChange('engineering', idx, 'degree', e.target.value)} />
                     </div>
                     <div>
                       <label className="block text-xs text-slate-500 mb-1">Description</label>
-                      <input type="text" className="w-full bg-zinc-950 border border-slate-800 px-3 py-2 text-white focus:outline-none focus:border-orange-500 text-sm" value={edu.description} onChange={(e) => handleEducationChange('engineering', idx, 'description', e.target.value)} />
+                      <input type="text" className="w-full bg-white dark:bg-zinc-950 border border-slate-300 dark:border-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-orange-500 text-sm" value={edu.description} onChange={(e) => handleEducationChange('engineering', idx, 'description', e.target.value)} />
                     </div>
                   </div>
                 </div>
@@ -226,7 +226,7 @@ const ProfileEditor = () => {
           </div>
           {/* Engineering Tech Stack */}
           <div>
-            <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-2">
+            <div className="flex justify-between items-center mb-4 border-b border-slate-300 dark:border-slate-800 pb-2">
               <label className="block text-xs tracking-widest text-slate-500 uppercase">Tech Stack</label>
               <button type="button" onClick={() => {
                 setFormData(prev => ({
@@ -242,7 +242,7 @@ const ProfileEditor = () => {
             </div>
             <div className="space-y-4">
               {formData.engineering?.techStack?.map((group, idx) => (
-                <div key={idx} className="bg-black border border-slate-800 p-4 relative">
+                <div key={idx} className="bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-800 p-4 relative">
                   <button type="button" onClick={() => {
                     setFormData(prev => {
                       const newStack = [...(prev.engineering.techStack || [])];
@@ -253,7 +253,7 @@ const ProfileEditor = () => {
                   <div className="grid grid-cols-1 gap-4">
                     <div>
                       <label className="block text-xs text-slate-500 mb-1">Category Name</label>
-                      <input type="text" className="w-full bg-zinc-950 border border-slate-800 px-3 py-2 text-white focus:outline-none focus:border-orange-500 text-sm" value={group.category} onChange={(e) => {
+                      <input type="text" className="w-full bg-white dark:bg-zinc-950 border border-slate-300 dark:border-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-orange-500 text-sm" value={group.category} onChange={(e) => {
                         setFormData(prev => {
                           const newStack = [...(prev.engineering.techStack || [])];
                           newStack[idx] = { ...newStack[idx], category: e.target.value };
@@ -263,7 +263,7 @@ const ProfileEditor = () => {
                     </div>
                     <div>
                       <label className="block text-xs text-slate-500 mb-1">Skills (comma-separated)</label>
-                      <input type="text" className="w-full bg-zinc-950 border border-slate-800 px-3 py-2 text-white focus:outline-none focus:border-orange-500 text-sm" value={group.skills.join(', ')} onChange={(e) => {
+                      <input type="text" className="w-full bg-white dark:bg-zinc-950 border border-slate-300 dark:border-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-orange-500 text-sm" value={group.skills.join(', ')} onChange={(e) => {
                         setFormData(prev => {
                           const newStack = [...(prev.engineering.techStack || [])];
                           newStack[idx] = { ...newStack[idx], skills: e.target.value.split(',').map(s => s.trim()).filter(Boolean) };
@@ -279,13 +279,13 @@ const ProfileEditor = () => {
         </section>
 
         {/* Developer Profile */}
-        <section className="bg-zinc-950 border border-blue-900/30 border-t-4 border-t-blue-500 p-6 space-y-6">
-          <h3 className="text-sm font-bold tracking-widest text-blue-500 border-b border-slate-800 pb-2 uppercase">Developer Identity</h3>
+        <section className="bg-white dark:bg-zinc-950 border border-blue-900/30 border-t-4 border-t-blue-500 p-6 space-y-6">
+          <h3 className="text-sm font-bold tracking-widest text-blue-500 border-b border-slate-300 dark:border-slate-800 pb-2 uppercase">Developer Identity</h3>
           <div>
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Hero Title</label>
             <input 
               type="text" 
-              className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+              className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 transition-colors"
               value={formData.developer?.heroTitle || ''}
               onChange={(e) => handleChange(e, 'developer', 'heroTitle')}
             />
@@ -294,7 +294,7 @@ const ProfileEditor = () => {
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">Hero Description</label>
             <textarea 
               rows="3"
-              className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+              className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 transition-colors"
               value={formData.developer?.heroDescription || ''}
               onChange={(e) => handleChange(e, 'developer', 'heroDescription')}
             />
@@ -303,13 +303,13 @@ const ProfileEditor = () => {
             <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">About Section Text</label>
             <textarea 
               rows="5"
-              className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+              className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 transition-colors"
               value={formData.developer?.aboutText || ''}
               onChange={(e) => handleChange(e, 'developer', 'aboutText')}
             />
           </div>
           <div>
-            <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-2">
+            <div className="flex justify-between items-center mb-4 border-b border-slate-300 dark:border-slate-800 pb-2">
               <label className="block text-xs tracking-widest text-slate-500 uppercase">Education Timeline</label>
               <button type="button" onClick={() => handleAddEducation('developer')} className="text-xs text-blue-500 hover:text-blue-400 tracking-widest uppercase">
                 + Add Entry
@@ -317,28 +317,28 @@ const ProfileEditor = () => {
             </div>
             <div className="space-y-4">
               {formData.developer?.education?.map((edu, idx) => (
-                <div key={idx} className="bg-black border border-slate-800 p-4 relative pt-12 md:pt-4">
+                <div key={idx} className="bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-800 p-4 relative pt-12 md:pt-4">
                   <div className="absolute top-4 right-4 flex gap-4">
-                    <button type="button" onClick={() => handleMoveEducation('developer', idx, 'up')} disabled={idx === 0} className={`text-xs uppercase tracking-widest ${idx === 0 ? 'text-slate-700 cursor-not-allowed' : 'text-slate-400 hover:text-white'}`}>Up</button>
-                    <button type="button" onClick={() => handleMoveEducation('developer', idx, 'down')} disabled={idx === (formData.developer?.education?.length || 0) - 1} className={`text-xs uppercase tracking-widest ${idx === (formData.developer?.education?.length || 0) - 1 ? 'text-slate-700 cursor-not-allowed' : 'text-slate-400 hover:text-white'}`}>Down</button>
+                    <button type="button" onClick={() => handleMoveEducation('developer', idx, 'up')} disabled={idx === 0} className={`text-xs uppercase tracking-widest ${idx === 0 ? 'text-slate-700 cursor-not-allowed' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:text-white'}`}>Up</button>
+                    <button type="button" onClick={() => handleMoveEducation('developer', idx, 'down')} disabled={idx === (formData.developer?.education?.length || 0) - 1} className={`text-xs uppercase tracking-widest ${idx === (formData.developer?.education?.length || 0) - 1 ? 'text-slate-700 cursor-not-allowed' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:text-white'}`}>Down</button>
                     <button type="button" onClick={() => handleRemoveEducation('developer', idx)} className="text-xs text-red-500 hover:text-red-400 uppercase tracking-widest">Remove</button>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs text-slate-500 mb-1">Year</label>
-                      <input type="text" className="w-full bg-zinc-950 border border-slate-800 px-3 py-2 text-white focus:outline-none focus:border-blue-500 text-sm" value={edu.year} onChange={(e) => handleEducationChange('developer', idx, 'year', e.target.value)} />
+                      <input type="text" className="w-full bg-white dark:bg-zinc-950 border border-slate-300 dark:border-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 text-sm" value={edu.year} onChange={(e) => handleEducationChange('developer', idx, 'year', e.target.value)} />
                     </div>
                     <div>
                       <label className="block text-xs text-slate-500 mb-1">Institution</label>
-                      <input type="text" className="w-full bg-zinc-950 border border-slate-800 px-3 py-2 text-white focus:outline-none focus:border-blue-500 text-sm" value={edu.institution} onChange={(e) => handleEducationChange('developer', idx, 'institution', e.target.value)} />
+                      <input type="text" className="w-full bg-white dark:bg-zinc-950 border border-slate-300 dark:border-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 text-sm" value={edu.institution} onChange={(e) => handleEducationChange('developer', idx, 'institution', e.target.value)} />
                     </div>
                     <div>
                       <label className="block text-xs text-slate-500 mb-1">Degree</label>
-                      <input type="text" className="w-full bg-zinc-950 border border-slate-800 px-3 py-2 text-white focus:outline-none focus:border-blue-500 text-sm" value={edu.degree} onChange={(e) => handleEducationChange('developer', idx, 'degree', e.target.value)} />
+                      <input type="text" className="w-full bg-white dark:bg-zinc-950 border border-slate-300 dark:border-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 text-sm" value={edu.degree} onChange={(e) => handleEducationChange('developer', idx, 'degree', e.target.value)} />
                     </div>
                     <div>
                       <label className="block text-xs text-slate-500 mb-1">Description</label>
-                      <input type="text" className="w-full bg-zinc-950 border border-slate-800 px-3 py-2 text-white focus:outline-none focus:border-blue-500 text-sm" value={edu.description} onChange={(e) => handleEducationChange('developer', idx, 'description', e.target.value)} />
+                      <input type="text" className="w-full bg-white dark:bg-zinc-950 border border-slate-300 dark:border-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 text-sm" value={edu.description} onChange={(e) => handleEducationChange('developer', idx, 'description', e.target.value)} />
                     </div>
                   </div>
                 </div>
@@ -347,7 +347,7 @@ const ProfileEditor = () => {
           </div>
           {/* Developer Tech Stack */}
           <div>
-            <div className="flex justify-between items-center mb-4 border-b border-slate-800 pb-2">
+            <div className="flex justify-between items-center mb-4 border-b border-slate-300 dark:border-slate-800 pb-2">
               <label className="block text-xs tracking-widest text-slate-500 uppercase">Tech Stack</label>
               <button type="button" onClick={() => {
                 setFormData(prev => ({
@@ -363,7 +363,7 @@ const ProfileEditor = () => {
             </div>
             <div className="space-y-4">
               {formData.developer?.techStack?.map((group, idx) => (
-                <div key={idx} className="bg-black border border-slate-800 p-4 relative">
+                <div key={idx} className="bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-800 p-4 relative">
                   <button type="button" onClick={() => {
                     setFormData(prev => {
                       const newStack = [...(prev.developer.techStack || [])];
@@ -374,7 +374,7 @@ const ProfileEditor = () => {
                   <div className="grid grid-cols-1 gap-4">
                     <div>
                       <label className="block text-xs text-slate-500 mb-1">Category Name</label>
-                      <input type="text" className="w-full bg-zinc-950 border border-slate-800 px-3 py-2 text-white focus:outline-none focus:border-blue-500 text-sm" value={group.category} onChange={(e) => {
+                      <input type="text" className="w-full bg-white dark:bg-zinc-950 border border-slate-300 dark:border-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 text-sm" value={group.category} onChange={(e) => {
                         setFormData(prev => {
                           const newStack = [...(prev.developer.techStack || [])];
                           newStack[idx] = { ...newStack[idx], category: e.target.value };
@@ -384,7 +384,7 @@ const ProfileEditor = () => {
                     </div>
                     <div>
                       <label className="block text-xs text-slate-500 mb-1">Skills (comma-separated)</label>
-                      <input type="text" className="w-full bg-zinc-950 border border-slate-800 px-3 py-2 text-white focus:outline-none focus:border-blue-500 text-sm" value={group.skills.join(', ')} onChange={(e) => {
+                      <input type="text" className="w-full bg-white dark:bg-zinc-950 border border-slate-300 dark:border-slate-800 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 text-sm" value={group.skills.join(', ')} onChange={(e) => {
                         setFormData(prev => {
                           const newStack = [...(prev.developer.techStack || [])];
                           newStack[idx] = { ...newStack[idx], skills: e.target.value.split(',').map(s => s.trim()).filter(Boolean) };
@@ -400,15 +400,15 @@ const ProfileEditor = () => {
         </section>
 
         {/* Social Links */}
-        <section className="bg-zinc-950 border border-slate-900 p-6 space-y-6">
-          <h3 className="text-sm font-bold tracking-widest text-slate-400 border-b border-slate-800 pb-2 uppercase">Social Links</h3>
+        <section className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-slate-900 p-6 space-y-6">
+          <h3 className="text-sm font-bold tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-300 dark:border-slate-800 pb-2 uppercase">Social Links</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {['github', 'linkedin', 'instagram', 'behance', 'email'].map(platform => (
               <div key={platform}>
                 <label className="block text-xs tracking-widest text-slate-500 mb-2 uppercase">{platform}</label>
                 <input 
                   type="text" 
-                  className="w-full bg-black border border-slate-700 px-4 py-3 text-white focus:outline-none focus:border-white transition-colors"
+                  className="w-full bg-zinc-50 dark:bg-black border border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-white transition-colors"
                   value={formData.socialLinks?.[platform] || ''}
                   onChange={(e) => handleSocialChange(e, platform)}
                 />

@@ -34,11 +34,33 @@ html[data-theme="matrix"] {
   --dev-accent-hover: #059669;
 }
 
+html[data-theme="neon"] {
+  --eng-accent: #06b6d4;
+  --eng-accent-hover: #0891b2;
+  --dev-accent: #ec4899;
+  --dev-accent-hover: #db2777;
+}
+
+html[data-theme="sunset"] {
+  --eng-accent: #ef4444;
+  --eng-accent-hover: #dc2626;
+  --dev-accent: #f59e0b;
+  --dev-accent-hover: #d97706;
+}
+
+html[data-theme="monochrome"] {
+  --eng-accent: #94a3b8;
+  --eng-accent-hover: #64748b;
+  --dev-accent: #cbd5e1;
+  --dev-accent-hover: #94a3b8;
+}
+
+@custom-variant dark (&:is(.dark *));
+
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--color-dark);
-  color: white;
+  @apply bg-white text-slate-900 dark:bg-black dark:text-white;
   font-family: var(--font-sans);
   overflow-x: hidden;
 }

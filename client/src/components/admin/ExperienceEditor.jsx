@@ -20,7 +20,7 @@ const ExperienceEditor = () => {
 
   const fetchExperiences = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/experience');
+      const res = await axios.get('/api/experience');
       setExperiences(res.data);
     } catch (err) {
       console.error(err);
@@ -38,9 +38,9 @@ const ExperienceEditor = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5000/api/experience/${editingId}`, formData, { withCredentials: true });
+        await axios.put(`/api/experience/${editingId}`, formData, { withCredentials: true });
       } else {
-        await axios.post('http://localhost:5000/api/experience', formData, { withCredentials: true });
+        await axios.post('/api/experience', formData, { withCredentials: true });
       }
       
       setFormData({ title: '', company: '', year: '', description: '', category: 'engineering', order: 0 });
@@ -67,7 +67,7 @@ const ExperienceEditor = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this experience?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/experience/${id}`, { withCredentials: true });
+      await axios.delete(`/api/experience/${id}`, { withCredentials: true });
       fetchExperiences();
     } catch (err) {
       console.error(err);

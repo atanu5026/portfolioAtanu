@@ -21,7 +21,7 @@ const BlogEditor = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/blogs');
+      const res = await axios.get('/api/blogs');
       setBlogs(res.data);
       setLoading(false);
     } catch (err) {
@@ -53,7 +53,7 @@ const BlogEditor = () => {
 
     setUploadingImage(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/upload', formDataUpload, {
+      const res = await axios.post('/api/upload', formDataUpload, {
         headers: { 'Content-Type': 'multipart/form-data' },
         withCredentials: true
       });
@@ -69,7 +69,7 @@ const BlogEditor = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this blog?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/blogs/${id}`, { withCredentials: true });
+      await axios.delete(`/api/blogs/${id}`, { withCredentials: true });
       fetchBlogs();
       setMessage({ type: 'success', text: 'Blog deleted' });
     } catch (err) {
@@ -87,10 +87,10 @@ const BlogEditor = () => {
 
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5000/api/blogs/${editingId}`, payload, { withCredentials: true });
+        await axios.put(`/api/blogs/${editingId}`, payload, { withCredentials: true });
         setMessage({ type: 'success', text: 'Blog updated' });
       } else {
-        await axios.post('http://localhost:5000/api/blogs', payload, { withCredentials: true });
+        await axios.post('/api/blogs', payload, { withCredentials: true });
         setMessage({ type: 'success', text: 'Blog created' });
       }
       fetchBlogs();

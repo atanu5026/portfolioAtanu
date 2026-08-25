@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:5000/api/auth/logout');
+      await axios.post('/api/auth/logout');
       navigate('/admin/login');
     } catch (error) {
       console.error('Logout failed', error);
@@ -28,7 +28,7 @@ const Dashboard = () => {
   const handleChangePassword = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put('http://localhost:5000/api/auth/password', {
+      const res = await axios.put('/api/auth/password', {
         currentPassword,
         newPassword
       }, { withCredentials: true });

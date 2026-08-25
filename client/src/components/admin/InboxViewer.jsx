@@ -12,7 +12,7 @@ const InboxViewer = () => {
 
   const fetchMessages = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/messages', { withCredentials: true });
+      const res = await axios.get('/api/messages', { withCredentials: true });
       setMessages(res.data);
       setLoading(false);
     } catch (err) {
@@ -23,7 +23,7 @@ const InboxViewer = () => {
 
   const handleMarkRead = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/api/messages/${id}`, {}, { withCredentials: true });
+      await axios.put(`/api/messages/${id}`, {}, { withCredentials: true });
       setMessages(messages.map(m => m._id === id ? { ...m, isRead: true } : m));
     } catch (err) {
       console.error(err);
@@ -33,7 +33,7 @@ const InboxViewer = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this message?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/messages/${id}`, { withCredentials: true });
+      await axios.delete(`/api/messages/${id}`, { withCredentials: true });
       setMessages(messages.filter(m => m._id !== id));
     } catch (err) {
       console.error(err);

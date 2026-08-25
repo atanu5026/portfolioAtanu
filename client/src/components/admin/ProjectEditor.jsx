@@ -22,7 +22,7 @@ const ProjectEditor = () => {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/projects');
+      const res = await axios.get('/api/projects');
       setProjects(res.data);
       setLoading(false);
     } catch (err) {
@@ -55,7 +55,7 @@ const ProjectEditor = () => {
 
     setUploadingImage(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/upload', formDataUpload, {
+      const res = await axios.post('/api/upload', formDataUpload, {
         headers: { 'Content-Type': 'multipart/form-data' },
         withCredentials: true
       });
@@ -77,7 +77,7 @@ const ProjectEditor = () => {
 
     setUploadingImage(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/upload', formDataUpload, {
+      const res = await axios.post('/api/upload', formDataUpload, {
         headers: { 'Content-Type': 'multipart/form-data' },
         withCredentials: true
       });
@@ -97,7 +97,7 @@ const ProjectEditor = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this project?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/projects/${id}`, { withCredentials: true });
+      await axios.delete(`/api/projects/${id}`, { withCredentials: true });
       fetchProjects();
       setMessage({ type: 'success', text: 'Project deleted' });
     } catch (err) {
@@ -115,10 +115,10 @@ const ProjectEditor = () => {
 
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5000/api/projects/${editingId}`, payload, { withCredentials: true });
+        await axios.put(`/api/projects/${editingId}`, payload, { withCredentials: true });
         setMessage({ type: 'success', text: 'Project updated' });
       } else {
-        await axios.post('http://localhost:5000/api/projects', payload, { withCredentials: true });
+        await axios.post('/api/projects', payload, { withCredentials: true });
         setMessage({ type: 'success', text: 'Project created' });
       }
       fetchProjects();

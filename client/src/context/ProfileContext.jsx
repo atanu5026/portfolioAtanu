@@ -11,7 +11,7 @@ export const ProfileProvider = ({ children }) => {
 
   const fetchProfile = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/profile');
+      const res = await axios.get('/api/profile');
       setProfileData(res.data);
       setLoading(false);
     } catch (error) {

@@ -26,7 +26,7 @@ const Connect = () => {
 
     try {
       // 1. Save to Database (Backend)
-      await axios.post('http://localhost:5000/api/messages', {
+      await axios.post('/api/messages', {
         name: formData.name,
         email: formData.email,
         subject: 'New Portfolio Contact Message',

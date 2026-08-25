@@ -15,7 +15,7 @@ const AdminLogin = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/auth/me', { withCredentials: true });
+        const res = await axios.get('/api/auth/me', { withCredentials: true });
         if (res.status === 200) {
           navigate('/admin/dashboard');
         }
@@ -29,7 +29,7 @@ const AdminLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { username, password }, { withCredentials: true });
+      const res = await axios.post('/api/auth/login', { username, password }, { withCredentials: true });
       if (res.status === 200) {
         navigate('/admin/dashboard');
       }

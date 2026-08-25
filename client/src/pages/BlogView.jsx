@@ -22,7 +22,7 @@ const BlogView = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/blogs/${id}`);
+        const res = await axios.get(`/api/blogs/${id}`);
         setBlog(res.data);
       } catch (err) {
         console.error(err);
@@ -48,7 +48,7 @@ const BlogView = () => {
     if (liking) return;
     setLiking(true);
     try {
-      const res = await axios.post(`http://localhost:5000/api/blogs/${id}/like`);
+      const res = await axios.post(`/api/blogs/${id}/like`);
       setBlog(prev => ({ ...prev, likes: res.data.likes }));
     } catch (err) {
       console.error(err);

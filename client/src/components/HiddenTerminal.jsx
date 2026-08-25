@@ -75,7 +75,7 @@ const HiddenTerminal = () => {
         if (msgMatch && msgMatch[1]) {
           const message = msgMatch[1];
           try {
-            await axios.post('http://localhost:5000/api/guestbook', {
+            await axios.post('/api/guestbook', {
               message,
               signature: 'AGY Terminal User'
             });

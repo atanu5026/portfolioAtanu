@@ -11,7 +11,7 @@ const ProfileEditor = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/profile');
+        const res = await axios.get('/api/profile');
         setFormData(res.data);
         setLoading(false);
       } catch (error) {
@@ -92,7 +92,7 @@ const ProfileEditor = () => {
     e.preventDefault();
     setMessage('');
     try {
-      await axios.put('http://localhost:5000/api/profile', formData, { withCredentials: true });
+      await axios.put('/api/profile', formData, { withCredentials: true });
       setMessage({ type: 'success', text: 'Profile updated successfully!' });
       // Refresh global context so changes reflect on the frontend immediately
       if (fetchProfile) fetchProfile();

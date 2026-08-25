@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-orange-500: var(--eng-accent, #f97316);
+  --color-orange-600: var(--eng-accent-hover, #ea580c);
+  --color-blue-500: var(--dev-accent, #3b82f6);
+  --color-blue-600: var(--dev-accent-hover, #2563eb);
+  --color-dark: #000000;
+  
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-bebas: 'Bebas Neue', sans-serif;
+}
+
+:root {
+  --eng-accent: #f97316;
+  --eng-accent-hover: #ea580c;
+  --dev-accent: #3b82f6;
+  --dev-accent-hover: #2563eb;
+}
+
+html[data-theme="cyberpunk"] {
+  --eng-accent: #d946ef;
+  --eng-accent-hover: #c026d3;
+  --dev-accent: #eab308;
+  --dev-accent-hover: #ca8a04;
+}
+
+html[data-theme="matrix"] {
+  --eng-accent: #22c55e;
+  --eng-accent-hover: #16a34a;
+  --dev-accent: #10b981;
+  --dev-accent-hover: #059669;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-dark);
+  color: white;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Base resets */
+* {
+  box-sizing: border-box;
+  cursor: none !important;
+}
+
+button, a {
+  /* removed cursor: pointer so custom cursor shows */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffffff; /* fallback */
+  border-radius: 0px;
+}
+html.identity-developer ::-webkit-scrollbar-thumb {
+  background: var(--dev-accent, #3b82f6); 
+}
+html.identity-engineering ::-webkit-scrollbar-thumb {
+  background: var(--eng-accent, #f97316); 
+}

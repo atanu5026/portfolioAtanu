@@ -67,7 +67,7 @@ const DeveloperCore = ({ color }) => {
 
 const EngineerCore = ({ color }) => {
   return (
-    <group position={[0, 0.5, 0]}>
+    <group position={[0, -0.5, 0]}>
       {/* Power Matrix Cage */}
       <Icosahedron args={[2, 1]}>
         <meshStandardMaterial color="#94a3b8" metalness={1} roughness={0.1} wireframe={true} />

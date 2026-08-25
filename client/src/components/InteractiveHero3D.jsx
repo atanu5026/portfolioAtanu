@@ -130,7 +130,7 @@ const InteractiveHero3D = () => {
   const color = isEngineer ? '#f97316' : '#3b82f6';
 
   return (
-    <div className="absolute right-0 -bottom-10 md:bottom-auto md:top-0 w-full md:w-1/2 h-[35vh] md:h-full z-0 pointer-events-none opacity-90">
+    <div className="absolute right-0 bottom-0 md:bottom-auto md:-top-24 w-full md:w-1/2 h-[35vh] md:h-full z-0 pointer-events-none opacity-90">
       <Canvas camera={{ position: [0, 0, 8], fov: 45 }} style={{ width: '100%', height: '100%' }}>
         <ambientLight intensity={1.5} />
         <directionalLight position={[10, 10, 10]} intensity={3} />

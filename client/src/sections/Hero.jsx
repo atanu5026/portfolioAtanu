@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { useIdentity } from '../context/IdentityContext';
 import { useProfile } from '../context/ProfileContext';
 import Loader from '../components/Loader';
-import InteractiveHero3D from '../components/InteractiveHero3D';
+
+const InteractiveHero3D = React.lazy(() => import('../components/InteractiveHero3D'));
 
 const Hero = () => {
   const { identity } = useIdentity();
@@ -19,7 +20,9 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center pt-24 pb-12 relative overflow-hidden scroll-mt-32">
       {/* 3D Background */}
-      <InteractiveHero3D />
+      <React.Suspense fallback={null}>
+        <InteractiveHero3D />
+      </React.Suspense>
 
       {/* Dynamic Background Elements */}
       <div className={`absolute top-1/4 -right-64 w-96 h-96 bg-current opacity-5 blur-[128px] rounded-full ${accentColor}`}></div>

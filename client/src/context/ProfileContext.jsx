@@ -6,8 +6,26 @@ const ProfileContext = createContext();
 export const useProfile = () => useContext(ProfileContext);
 
 export const ProfileProvider = ({ children }) => {
-  const [profileData, setProfileData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [profileData, setProfileData] = useState({
+    name: 'ATANU GHOSH',
+    resumeUrl: '#',
+    engineering: {
+      heroTitle: 'ELECTRICAL ENGINEER',
+      heroDescription: 'Specializing in power systems, hardware design, and IoT integration.',
+      aboutText: 'I am an Electrical Engineer specializing in power systems, hardware design, and IoT integration.',
+      techStack: [],
+      education: []
+    },
+    developer: {
+      heroTitle: 'FULL STACK DEVELOPER',
+      heroDescription: 'Architecting high-performance web applications.',
+      aboutText: 'I am a Full Stack Developer specializing in the MERN stack.',
+      techStack: [],
+      education: []
+    },
+    socialLinks: {}
+  });
+  const [loading, setLoading] = useState(false);
 
   const fetchProfile = async () => {
     // Set a timeout to prevent infinite loading if the backend hangs

@@ -22,16 +22,16 @@ const GithubStats = ({ username = 'atanu5026' }) => {
         console.warn('GitHub rate limit hit. Using fallback data.');
         setProfile({ 
           login: username, 
-          name: username, 
-          avatar_url: 'https://avatars.githubusercontent.com/u/9919?v=4', 
-          public_repos: '15+', 
-          followers: '50+' 
+          name: 'Atanu Ghosh', 
+          avatar_url: 'https://avatars.githubusercontent.com/u/111701139?v=4', 
+          public_repos: '11', 
+          followers: '2' 
         });
         setRepos([
-           { id: 1, name: 'Portfolio-V1', html_url: '#', language: 'JavaScript', updated_at: new Date().toISOString() },
-           { id: 2, name: 'IoT-Smart-Home', html_url: '#', language: 'C++', updated_at: new Date().toISOString() },
-           { id: 3, name: 'E-Commerce-Backend', html_url: '#', language: 'Node.js', updated_at: new Date().toISOString() },
-           { id: 4, name: 'React-Native-App', html_url: '#', language: 'TypeScript', updated_at: new Date().toISOString() }
+           { id: 1345564982, name: 'portfolioAtanu', html_url: 'https://github.com/atanu5026/portfolioAtanu', language: 'JavaScript', updated_at: '2026-08-25T18:20:31Z' },
+           { id: 1341729436, name: 'messageme', html_url: 'https://github.com/atanu5026/messageme', language: 'JavaScript', updated_at: '2026-08-23T21:14:06Z' },
+           { id: 1341187112, name: 'makatute', html_url: 'https://github.com/atanu5026/makatute', language: 'JavaScript', updated_at: '2026-08-20T23:37:56Z' },
+           { id: 546840613, name: 'atanu5026', html_url: 'https://github.com/atanu5026/atanu5026', language: 'Config', updated_at: '2026-06-25T07:24:17Z' }
         ]);
       } finally {
         setLoading(false);

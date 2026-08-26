@@ -126,6 +126,7 @@ const BlogView = () => {
         <meta property="og:description" content={blog.metaDescription || (blog.content.substring(0, 150) + '...')} />
         {blog.coverImage && <meta property="og:image" content={blog.coverImage} />}
         <meta property="og:type" content="article" />
+        <link rel="canonical" href={`https://www.buildwithatanu.in/blog/${id}`} />
       </Helmet>
       <div className="min-h-screen bg-zinc-50 dark:bg-black text-slate-600 dark:text-slate-300 relative pb-24 font-sans">
         {/* Progress Bar */}

@@ -59,6 +59,7 @@ const Portfolio = () => {
       <Helmet>
         <title>{titleString} | Atanu Ghosh</title>
         <meta name="description" content={profile.aboutText.substring(0, 150) + '...'} />
+        <link rel="canonical" href="https://www.buildwithatanu.in/portfolio" />
       </Helmet>
       <MainLayout>
         <PageTransition>

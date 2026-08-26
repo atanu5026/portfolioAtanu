@@ -55,13 +55,14 @@ const Portfolio = () => {
   const titleString = identity === 'engineering' ? "Electrical Engineer Portfolio" : "Full Stack Developer Portfolio";
 
   return (
-    <PageTransition>
+    <>
       <Helmet>
         <title>{titleString} | Atanu Ghosh</title>
         <meta name="description" content={profile.aboutText.substring(0, 150) + '...'} />
       </Helmet>
       <MainLayout>
-        <Hero />
+        <PageTransition>
+          <Hero />
         <SocialBand />
         
         <div className="container mx-auto px-4 md:px-12 py-12 md:py-24 space-y-16 md:space-y-32">
@@ -136,10 +137,10 @@ const Portfolio = () => {
         </div>
         
         <Footer />
-        
+        </PageTransition>
         <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       </MainLayout>
-    </PageTransition>
+    </>
   );
 };
 

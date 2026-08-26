@@ -123,29 +123,44 @@ const Tetris = ({ onClose }) => {
     return () => clearInterval(gameLoopRef.current);
   }, [moveDown, isStarted, gameOver]);
 
+  const moveLeft = useCallback(() => {
+    if (!isStarted || gameOver || !currentPiece) return;
+    if (!checkCollision(currentPiece, { ...position, x: position.x - 1 })) {
+      setPosition(p => ({ ...p, x: p.x - 1 }));
+    }
+  }, [currentPiece, position, isStarted, gameOver]);
+
+  const moveRight = useCallback(() => {
+    if (!isStarted || gameOver || !currentPiece) return;
+    if (!checkCollision(currentPiece, { ...position, x: position.x + 1 })) {
+      setPosition(p => ({ ...p, x: p.x + 1 }));
+    }
+  }, [currentPiece, position, isStarted, gameOver]);
+
+  const rotatePiece = useCallback(() => {
+    if (!isStarted || gameOver || !currentPiece) return;
+    const rotated = currentPiece[0].map((val, index) => currentPiece.map(row => row[index]).reverse());
+    if (!checkCollision(rotated, position)) {
+      setCurrentPiece(rotated);
+    }
+  }, [currentPiece, position, isStarted, gameOver]);
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!isStarted || gameOver || !currentPiece) return;
       
       switch (e.key) {
         case 'ArrowLeft':
-          if (!checkCollision(currentPiece, { ...position, x: position.x - 1 })) {
-            setPosition(p => ({ ...p, x: p.x - 1 }));
-          }
+          moveLeft();
           break;
         case 'ArrowRight':
-          if (!checkCollision(currentPiece, { ...position, x: position.x + 1 })) {
-            setPosition(p => ({ ...p, x: p.x + 1 }));
-          }
+          moveRight();
           break;
         case 'ArrowDown':
           moveDown();
           break;
-        case 'ArrowUp': // Rotate
-          const rotated = currentPiece[0].map((val, index) => currentPiece.map(row => row[index]).reverse());
-          if (!checkCollision(rotated, position)) {
-            setCurrentPiece(rotated);
-          }
+        case 'ArrowUp':
+          rotatePiece();
           break;
         default:
           break;
@@ -154,7 +169,7 @@ const Tetris = ({ onClose }) => {
     
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentPiece, position, board, isStarted, gameOver, moveDown]);
+  }, [moveLeft, moveRight, moveDown, rotatePiece, isStarted, gameOver, currentPiece]);
 
   // Render combined board (static board + active piece)
   const renderBoard = board.map(row => [...row]);
@@ -220,6 +235,36 @@ const Tetris = ({ onClose }) => {
           className="text-slate-500 hover:text-slate-900 dark:text-white transition-colors text-xs tracking-widest uppercase"
         >
           Close Game
+        </button>
+      </div>
+
+      {/* Mobile Controls */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 md:hidden">
+        <button 
+          onClick={rotatePiece}
+          className="w-12 h-12 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center active:bg-slate-300 dark:active:bg-slate-700 text-slate-900 dark:text-white"
+        >
+          ↻
+        </button>
+        <div className="flex gap-8">
+          <button 
+            onClick={moveLeft}
+            className="w-12 h-12 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center active:bg-slate-300 dark:active:bg-slate-700 text-slate-900 dark:text-white"
+          >
+            ◀
+          </button>
+          <button 
+            onClick={moveRight}
+            className="w-12 h-12 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center active:bg-slate-300 dark:active:bg-slate-700 text-slate-900 dark:text-white"
+          >
+            ▶
+          </button>
+        </div>
+        <button 
+          onClick={moveDown}
+          className="w-12 h-12 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center active:bg-slate-300 dark:active:bg-slate-700 text-slate-900 dark:text-white"
+        >
+          ▼
         </button>
       </div>
 

@@ -2,6 +2,7 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
+  --breakpoint-md: 1025px;
   --color-orange-500: var(--eng-accent, #f97316);
   --color-orange-600: var(--eng-accent-hover, #ea580c);
   --color-blue-500: var(--dev-accent, #3b82f6);
@@ -96,4 +97,65 @@ html.identity-developer ::-webkit-scrollbar-thumb {
 }
 html.identity-engineering ::-webkit-scrollbar-thumb {
   background: var(--eng-accent, #f97316); 
+}
+
+/* ========================================================
+   Time Machine Themes 
+   ======================================================== */
+
+/* 1999 (Web 1.0) */
+html.theme-retro-90s body {
+  background-color: #008080 !important; /* Classic Windows Teal */
+  background-image: none !important;
+  color: #000000 !important;
+  font-family: 'Comic Sans MS', 'Times New Roman', Times, serif !important;
+}
+html.theme-retro-90s h1, html.theme-retro-90s h2, html.theme-retro-90s h3 {
+  font-family: 'Comic Sans MS', cursive, sans-serif !important;
+  color: #ff0000 !important;
+  text-shadow: 2px 2px 0px #ffff00 !important;
+}
+html.theme-retro-90s button {
+  background: #c0c0c0 !important;
+  border: 3px outset #ffffff !important;
+  border-bottom-color: #808080 !important;
+  border-right-color: #808080 !important;
+  color: #000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+html.theme-retro-90s button:active {
+  border-style: inset !important;
+}
+html.theme-retro-90s a {
+  color: #0000ff !important;
+  text-decoration: underline !important;
+}
+html.theme-retro-90s div[class*="bg-white"], html.theme-retro-90s div[class*="bg-black"], html.theme-retro-90s div[class*="bg-zinc"] {
+  background-color: #c0c0c0 !important;
+  border: 3px outset #ffffff !important;
+  border-bottom-color: #808080 !important;
+  border-right-color: #808080 !important;
+  color: #000000 !important;
+  border-radius: 0 !important;
+}
+
+/* 2005 (Frutiger Aero / Y2K) */
+html.theme-y2k body {
+  background: linear-gradient(to bottom, #dbe9f4 0%, #ffffff 100%) !important;
+  background-attachment: fixed !important;
+  color: #333 !important;
+  font-family: 'Trebuchet MS', Arial, sans-serif !important;
+}
+html.theme-y2k button {
+  background: linear-gradient(180deg, #d3e3f6 0%, #a2c2eb 100%) !important;
+  border: 1px solid #89a9d6 !important;
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 2px 3px rgba(0,0,0,0.15) !important;
+  color: #003366 !important;
+  font-weight: bold !important;
+}
+html.theme-y2k div[class*="border"] {
+  border-radius: 10px !important;
+  border-color: #a2c2eb !important;
 }

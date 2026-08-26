@@ -151,6 +151,36 @@ const Snake = ({ onClose }) => {
         Close Game
       </button>
 
+      {/* Mobile Controls */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 md:hidden">
+        <button 
+          onClick={() => { if (direction.y === 0) setDirection({ x: 0, y: -1 }) }}
+          className="w-12 h-12 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center active:bg-slate-300 dark:active:bg-slate-700 text-slate-900 dark:text-white"
+        >
+          ▲
+        </button>
+        <div className="flex gap-8">
+          <button 
+            onClick={() => { if (direction.x === 0) setDirection({ x: -1, y: 0 }) }}
+            className="w-12 h-12 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center active:bg-slate-300 dark:active:bg-slate-700 text-slate-900 dark:text-white"
+          >
+            ◀
+          </button>
+          <button 
+            onClick={() => { if (direction.x === 0) setDirection({ x: 1, y: 0 }) }}
+            className="w-12 h-12 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center active:bg-slate-300 dark:active:bg-slate-700 text-slate-900 dark:text-white"
+          >
+            ▶
+          </button>
+        </div>
+        <button 
+          onClick={() => { if (direction.y === 0) setDirection({ x: 0, y: 1 }) }}
+          className="w-12 h-12 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center active:bg-slate-300 dark:active:bg-slate-700 text-slate-900 dark:text-white"
+        >
+          ▼
+        </button>
+      </div>
+
       <AnimatePresence>
         {isDead && (
           <motion.div

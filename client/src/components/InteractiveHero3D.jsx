@@ -40,7 +40,7 @@ const MatrixScreen = ({ color }) => {
 
 const DeveloperCore = ({ color }) => {
   return (
-    <group position={[0, 0.5, 0]}>
+    <group position={[0, -0.5, 0]}>
       {/* Terminal Screen Body */}
       <Box args={[3, 2, 0.2]} position={[0, 0, 0]}>
         <meshStandardMaterial color="#0f172a" metalness={0.8} roughness={0.2} />

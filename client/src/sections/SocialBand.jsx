@@ -23,7 +23,7 @@ const SocialBand = () => {
   ];
 
   return (
-    <div className={`w-full flex overflow-x-auto border-y ${borderColor} bg-white dark:bg-zinc-950 mt-12`}>
+    <div className={`w-full flex sm:justify-center overflow-x-auto border-y ${borderColor} bg-white dark:bg-zinc-950 mt-12`}>
       {links.map((link, index) => (
         <a 
           key={index} 

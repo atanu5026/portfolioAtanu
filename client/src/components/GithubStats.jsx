@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
+import { GitHubCalendar } from 'react-github-calendar';
 
 const GithubStats = ({ username = 'atanu5026' }) => {
   const [profile, setProfile] = useState(null);
@@ -99,6 +100,23 @@ const GithubStats = ({ username = 'atanu5026' }) => {
               <p className="text-xs text-slate-500 font-mono">Updated: {new Date(repo.updated_at).toLocaleDateString()}</p>
             </a>
           ))}
+        </div>
+      </div>
+      <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-slate-900 p-6 overflow-hidden">
+        <h3 className="text-sm font-bold tracking-widest uppercase text-slate-600 dark:text-slate-300 mb-6 flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+          Commit Activity Heatmap
+        </h3>
+        <div className="w-full overflow-x-auto pb-4">
+          <div className="min-w-[700px] w-full flex justify-center [&_article]:w-full [&_svg]:w-full [&_svg]:h-auto">
+            <GitHubCalendar 
+              username={username} 
+              colorScheme={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}
+              blockSize={15}
+              blockMargin={4}
+              fontSize={14}
+            />
+          </div>
         </div>
       </div>
     </div>

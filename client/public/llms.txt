@@ -1,0 +1,11 @@
+# Atanu Ghosh - Portfolio
+
+Welcome to the LLM agent directory for Atanu Ghosh's portfolio website. I am a Full Stack Developer and Electrical Engineer.
+
+## Important Links
+- [Main Website](https://www.buildwithatanu.in/)
+- [Portfolio & Projects](https://www.buildwithatanu.in/portfolio)
+- [Sitemap](https://www.buildwithatanu.in/sitemap.xml)
+
+## Technical Stack
+This website is built using React, Tailwind CSS, Framer Motion, and Three.js on the frontend, with a Node.js and MongoDB backend.

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useIdentity } from '../context/IdentityContext';
 import PageTransition from '../components/PageTransition';
 import { Helmet } from 'react-helmet-async';
@@ -25,12 +25,17 @@ const Home = () => {
       <Helmet>
         <title>Atanu Ghosh | Choose Your Path</title>
         <meta name="description" content="Welcome to the interactive portfolio of Atanu Ghosh. Choose between my Electrical Engineering or Full Stack Developer identities." />
+        <link rel="canonical" href="https://www.buildwithatanu.in/" />
       </Helmet>
       <div className="h-screen w-screen flex flex-col md:flex-row overflow-hidden bg-zinc-50 dark:bg-black font-mono relative">
         {/* Engineering Side */}
-        <div 
+        <Link 
+          to="/portfolio"
           className="flex-1 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-900 flex items-center justify-center cursor-pointer group relative overflow-hidden"
-          onClick={(e) => handleSelect(e, 'engineering')}
+          onClick={(e) => {
+            e.preventDefault();
+            handleSelect(e, 'engineering');
+          }}
         >
           {/* Hover Background */}
           <div className="absolute inset-0 bg-gradient-to-t from-orange-500/40 to-transparent translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out" />
@@ -41,12 +46,16 @@ const Home = () => {
               Electrical<br />Engineer
             </h1>
           </div>
-        </div>
+        </Link>
 
         {/* Developer Side */}
-        <div 
+        <Link 
+          to="/portfolio"
           className="flex-1 flex items-center justify-center cursor-pointer group relative overflow-hidden"
-          onClick={(e) => handleSelect(e, 'developer')}
+          onClick={(e) => {
+            e.preventDefault();
+            handleSelect(e, 'developer');
+          }}
         >
           {/* Hover Background */}
           <div className="absolute inset-0 bg-gradient-to-b from-blue-500/40 to-transparent -translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out" />
@@ -57,7 +66,7 @@ const Home = () => {
               Full Stack<br />Developer
             </h1>
           </div>
-        </div>
+        </Link>
       </div>
 
       <AnimatePresence>

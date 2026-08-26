@@ -5,7 +5,7 @@ const Blog = require('../models/Blog');
 router.get('/sitemap.xml', async (req, res) => {
   try {
     const blogs = await Blog.find({ isPublished: true }).sort({ createdAt: -1 });
-    const baseUrl = process.env.CLIENT_URL || 'https://www.atanughosh.com';
+    const baseUrl = process.env.CLIENT_URL || 'https://www.buildwithatanu.in';
 
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
     xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;

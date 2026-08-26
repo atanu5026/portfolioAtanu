@@ -110,9 +110,7 @@ const Portfolio = () => {
                       onClick={() => setSelectedProject(proj)}
                       className="h-56 md:h-64 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-slate-900 flex flex-col items-center justify-center text-slate-500 shadow-xl group hover:border-slate-300 dark:border-slate-700 transition-colors cursor-pointer relative overflow-hidden p-4 md:p-6 text-center"
                     >
-                      {proj.thumbnail && (
-                        <img src={proj.thumbnail} alt={proj.title} className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity" />
-                      )}
+
                       <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity bg-current ${accentColor}`}></div>
                       
                       <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white group-hover:text-slate-900 dark:text-white transition-colors tracking-widest uppercase z-10 relative mb-2 break-words max-w-full">

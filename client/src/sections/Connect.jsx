@@ -12,7 +12,7 @@ const Connect = () => {
   const accentColor = identity === 'engineering' ? 'text-orange-500' : 'text-blue-500';
   const borderColor = identity === 'engineering' ? 'border-orange-500' : 'border-blue-500';
   const focusBorderColor = identity === 'engineering' ? 'focus:border-orange-500' : 'focus:border-blue-500';
-  const buttonBg = identity === 'engineering' ? 'hover:bg-orange-600' : 'hover:bg-blue-600';
+  const buttonBg = identity === 'engineering' ? 'hover:bg-orange-500 dark:hover:bg-orange-500' : 'hover:bg-blue-500 dark:hover:bg-blue-500';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
